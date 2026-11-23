@@ -6,7 +6,8 @@
   "description": "Asisten cerdas kuis, kuesioner, dan forum LMS Mentari UNPAM.",
   "permissions": [
     "storage",
-    "tabs"
+    "tabs",
+    "downloads"
   ],
   "host_permissions": [
     "https://mentari.unpam.ac.id/*",
