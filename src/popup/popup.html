@@ -283,7 +283,7 @@
             Respon Diskusi &amp; Forum LMS
           </span>
         </div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:11px;">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:9px;">
           <div class="notion-property-card">
             <label class="property-label" for="forumTone">
               <span>Gaya Bahasa (Tone of Voice)</span>
@@ -309,6 +309,20 @@
               </select>
             </div>
             <small class="helper-text">Target jumlah kata/paragraf balasan.</small>
+          </div>
+          <div class="notion-property-card" style="grid-column: span 2;">
+            <label class="property-label" for="forumOpeningStyle">
+              <span>Gaya Awalan Diskusi (Anti-Template)</span>
+            </label>
+            <div class="select-wrapper">
+              <select id="forumOpeningStyle" class="notion-select">
+                <option value="campur">Bervariasi &amp; Natural (Campur: Menurut saya, Izin menjawab, dll — Rekomendasi)</option>
+                <option value="opini">Opini Mahasiswa (Dominan: "Menurut saya...", "Dari kacamata saya...")</option>
+                <option value="izin">Sopan &amp; Santun (Dominan: "Izin menjawab...", "Izin menanggapi...")</option>
+                <option value="langsung">Langsung ke Inti (Terstruktur: "Menjawab Studi Kasus...")</option>
+              </select>
+            </div>
+            <small class="helper-text">Mengacak variasi awalan alami agar balasan diskusi tidak kaku atau berpola template.</small>
           </div>
         </div>
       </section>
