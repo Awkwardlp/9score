@@ -1051,3 +1051,239 @@ body::after {
 .footer-version {
   font-size: 10.5px;
 }
+
+/* ==========================================================================
+   License & Account Status Card
+   ========================================================================== */
+.license-card-group {
+  margin-bottom: 10px;
+}
+
+.license-status-badge {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 7.5px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: var(--ios-text-secondary);
+}
+
+.license-status-badge.active {
+  background: rgba(48, 209, 88, 0.15);
+  border-color: rgba(48, 209, 88, 0.35);
+  color: var(--ios-green-text, #30d158);
+}
+
+.license-status-badge.inactive,
+.license-status-badge.expired {
+  background: rgba(255, 69, 58, 0.14);
+  border-color: rgba(255, 69, 58, 0.32);
+  color: var(--ios-red-text, #ff6961);
+}
+
+.license-status-badge.mismatch {
+  background: rgba(255, 214, 10, 0.14);
+  border-color: rgba(255, 214, 10, 0.32);
+  color: var(--ios-amber-text, #ffd60a);
+}
+
+.license-content-card {
+  background: var(--ios-glass-inner);
+  border: 1px solid var(--ios-border-subtle);
+  border-radius: 10px;
+  padding: 8px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.license-account-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.btn-copy-nim {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 25px;
+  padding: 0 10px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 6px;
+  color: var(--ios-text-primary, #ffffff);
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+.btn-copy-nim svg {
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+  color: var(--ios-text-secondary, #a1a1a6);
+  display: block;
+}
+
+.btn-copy-nim .btn-copy-text {
+  line-height: 1;
+  display: inline-block;
+}
+
+.btn-copy-nim:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.28);
+  color: #ffffff;
+}
+
+.btn-copy-nim:hover svg {
+  color: #ffffff;
+}
+
+.btn-copy-nim:active {
+  transform: scale(0.97);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.btn-copy-nim.copied {
+  background: rgba(48, 209, 88, 0.16);
+  border-color: rgba(48, 209, 88, 0.4);
+  color: #30d158;
+}
+
+.btn-copy-nim.copied svg {
+  color: #30d158;
+}
+
+.account-info-left {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  min-width: 0;
+}
+
+.account-dot-indicator {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--ios-text-tertiary);
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.account-dot-indicator.connected {
+  background: #30d158;
+  box-shadow: 0 0 7px rgba(48, 209, 88, 0.8);
+}
+
+.account-dot-indicator.disconnected {
+  background: #ff453a;
+  box-shadow: 0 0 6px rgba(255, 69, 58, 0.6);
+}
+
+.account-meta {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11.5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.account-label {
+  color: var(--ios-text-secondary);
+}
+
+.account-nim {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.license-active-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 9px;
+  border-radius: 7px;
+  background: rgba(48, 209, 88, 0.08);
+  border: 1px solid rgba(48, 209, 88, 0.22);
+  font-size: 11px;
+}
+
+.license-active-meta {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.active-tier {
+  font-weight: 700;
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  color: #30d158;
+}
+
+.active-divider {
+  opacity: 0.4;
+  color: var(--ios-text-secondary);
+}
+
+.active-exp {
+  color: var(--ios-text-secondary);
+  font-size: 10.5px;
+}
+
+.btn-link-subtle {
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--ios-text-tertiary);
+  font-size: 10.5px;
+  text-decoration: underline;
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+
+.btn-link-subtle:hover {
+  color: #ffffff;
+}
+
+.license-input-box {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.btn-primary-sm {
+  height: 28px;
+  padding: 0 12px;
+  background: linear-gradient(180deg, #ffffff 0%, #e2e8f0 100%);
+  color: #000000;
+  border: none;
+  border-radius: 7px;
+  font-size: 11.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.btn-primary-sm:hover {
+  background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 100%);
+  transform: translateY(-0.5px);
+}
+
+.btn-primary-sm:active {
+  transform: translateY(0.5px);
+}

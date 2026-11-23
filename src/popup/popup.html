@@ -46,6 +46,65 @@
     </header>
 
     <main class="notion-content">
+      <!-- SECTION: LISENSI & STATUS AKUN MENTARI -->
+      <section class="notion-block-group license-card-group">
+        <div class="group-header">
+          <span class="group-title">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+            Status Lisensi &amp; Akun
+          </span>
+          <span id="licBadge" class="license-status-badge">Memeriksa…</span>
+        </div>
+
+        <div class="license-content-card">
+          <!-- Row 1: Informasi Akun Mentari Terdeteksi -->
+          <div class="license-account-row">
+            <div class="account-info-left">
+              <span class="account-dot-indicator" id="accountDot"></span>
+              <div class="account-meta">
+                <span class="account-label">Akun Mentari:</span>
+                <span id="detectedNimDisplay" class="account-nim font-mono">Memindai akun…</span>
+              </div>
+            </div>
+            <button id="copyNimBtn" type="button" class="btn-copy-nim" title="Salin NIM untuk aktivasi key" style="display:none;">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              <span class="btn-copy-text">Salin NIM</span>
+            </button>
+          </div>
+
+          <!-- Info Box Status Lisensi Aktif (Tampil jika sudah aktif) -->
+          <div id="licenseActiveBox" class="license-active-box" style="display:none;">
+            <div class="license-active-meta">
+              <span class="active-tier">PRO EDITION</span>
+              <span class="active-divider">•</span>
+              <span id="licenseExpiryText" class="active-exp">Berlaku s.d. -</span>
+            </div>
+            <button id="btnChangeKey" type="button" class="btn-link-subtle" title="Ganti atau perpanjang key">Ganti Key</button>
+          </div>
+
+          <!-- Input Box Aktivasi Lisensi (Tampil jika belum aktif / ganti key) -->
+          <div id="licenseInputBox" class="license-input-box" style="display:none;">
+            <div class="input-with-button">
+              <input
+                id="licenseKeyInput"
+                type="text"
+                autocomplete="off"
+                spellcheck="false"
+                placeholder="Tempel License Key (9S-NIM-...)"
+                class="notion-input font-mono"
+              />
+              <button id="btnActivateKey" type="button" class="btn-primary-sm">Aktivasi</button>
+            </div>
+            <div id="licenseInputMsg" class="helper-text" style="display:none;"></div>
+          </div>
+        </div>
+      </section>
+
       <!-- GRID 1: AI ENGINE & MODEL (2 KOLOM SIMETRIS) -->
       <div class="ai-config-grid">
         <!-- Card Kiri: Autentikasi & Sumber AI -->
@@ -351,6 +410,7 @@
 
     <script src="../shared/constants.js"></script>
     <script src="../shared/storage.js"></script>
+    <script src="../shared/license.js"></script>
     <script src="popup.js"></script>
   </body>
 </html>

@@ -53,6 +53,7 @@
         "src/shared/routes.js",
         "src/shared/selectors.js",
         "src/shared/storage.js",
+        "src/shared/license.js",
         "src/content/api.js",
         "src/content/ui.js",
         "src/content/features/quiz.js",
