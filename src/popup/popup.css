@@ -347,6 +347,45 @@ body::after {
   box-shadow: var(--ios-specular-top);
 }
 
+/* AI Configuration Grid & Symmetrical Cards */
+.ai-config-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 11px;
+  align-items: stretch;
+}
+
+.ai-card-group {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  justify-content: flex-start;
+}
+
+.ai-card-inner {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 8px;
+  min-height: 68px;
+}
+
+/* Features Checklist 2-Column Grid (Zero Blank Space) */
+.features-checklist-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 12px;
+  padding: 1px 2px;
+}
+
+.features-checklist-col {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
 /* Quiz Settings Grid & Symmetrical Cards */
 .quiz-settings-grid {
   display: grid;
@@ -463,10 +502,10 @@ body::after {
 .notion-content {
   position: relative;
   z-index: 1;
-  padding: 13px 15px;
+  padding: 12px 14px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
 }
 
 .notion-grid-2col {
