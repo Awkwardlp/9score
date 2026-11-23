@@ -633,7 +633,7 @@
                     <span class="field-helper">Sesuaikan dengan kebiasaan standar diskusi mata kuliah Anda.</span>
                   </div>
 
-                  <div class="property-card" style="grid-column: 1 / -1;">
+                  <div class="property-card">
                     <label class="field-label" for="forumOpeningStyleSelect">
                       <svg class="field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M12 20h9"></path>
@@ -649,17 +649,25 @@
                     </select>
                     <span class="field-helper">Memvariasikan kalimat pembuka argumen secara dinamis dan alami agar tanggapan tidak terkesan kaku atau berpola template.</span>
                   </div>
-                </div>
 
-                <div class="property-card" style="margin-top:10px">
-                  <label class="notion-checkbox-row">
-                    <input id="forumIncludeGreeting" type="checkbox" checked />
-                    <span class="custom-checkbox"></span>
-                    <span class="checkbox-label">
-                      <strong>Sisipkan Salam Pembuka &amp; Penutup Sopan</strong>
-                      <small class="checkbox-sub">Contoh: "Selamat pagi/siang Bapak/Ibu Dosen dan rekan-rekan mahasiswa... Terima kasih."</small>
-                    </span>
-                  </label>
+                  <div class="property-card">
+                    <label class="field-label" for="forumIncludeGreeting">
+                      <svg class="field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                      </svg>
+                      Format Salam &amp; Penutup
+                    </label>
+                    <div style="min-height: 38px; display: flex; align-items: center;">
+                      <label class="notion-checkbox-row">
+                        <input id="forumIncludeGreeting" type="checkbox" />
+                        <span class="custom-checkbox"></span>
+                        <span class="checkbox-label">
+                          <strong>Sisipkan Salam Pembuka &amp; Penutup Sopan</strong>
+                        </span>
+                      </label>
+                    </div>
+                    <span class="field-helper">Contoh: "Selamat pagi/siang Bapak/Ibu Dosen dan rekan-rekan... Terima kasih." (Default nonaktif demi gaya argumen anti-bot).</span>
+                  </div>
                 </div>
               </div>
 
