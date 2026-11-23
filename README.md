@@ -1,8 +1,8 @@
-# Mentari Copilot
+# 9Score
 
 <div align="center">
 
-![Mentari Copilot Logo](assets/images/MentariLogo-Dark.png)
+![9Score Logo](assets/images/MentariLogo-Dark.png)
 
 ### Asisten Cerdas & Otomatisasi Alur Pembelajaran LMS Mentari UNPAM
 **Created by 009's Core.**
@@ -16,9 +16,9 @@
 
 ---
 
-## 📌 Tentang Mentari Copilot
+## 📌 Tentang 9Score
 
-**Mentari Copilot** adalah ekstensi browser modern berbasis AI yang dirancang khusus untuk mempermudah, mempercepat, dan mengotomatiskan seluruh alur aktivitas belajar mahasiswa di portal **LMS Mentari Universitas Pamulang** (`mentari.unpam.ac.id`).
+**9Score** adalah ekstensi browser modern berbasis AI yang dirancang khusus untuk mempermudah, mempercepat, dan mengotomatiskan seluruh alur aktivitas belajar mahasiswa di portal **LMS Mentari Universitas Pamulang** (`mentari.unpam.ac.id`).
 
 Mulai dari pengerjaan kuis (Pre-Test & Post-Test) secara terukur, simulasi membaca modul materi agar presensi tercatat di log LMS, perumusan argumen diskusi cerdas berbasis Gemini AI, hingga pengisian survei/kuesioner pembelajaran secara otomatis dalam satu klik.
 
@@ -26,7 +26,7 @@ Mulai dari pengerjaan kuis (Pre-Test & Post-Test) secara terukur, simulasi memba
 
 ## ✨ Fitur Utama
 
-### 1. 🚀 Mentari Copilot Runner (Alur Otomatisasi Pertemuan)
+### 1. 🚀 9Score Runner (Alur Otomatisasi Pertemuan)
 * **Alur Presensi Lengkap (End-to-End)**:
   $$\text{Pre-Test} \longrightarrow \text{Materi PPT/PDF} \longrightarrow \text{Forum Diskusi (2 Balasan)} \longrightarrow \text{Post-Test} \longrightarrow \text{Kuesioner}$$
 * **Multi-Meeting & Batch Runner**: Jalankan otomatisasi untuk 1 pertemuan, beberapa pertemuan pilihan, atau seluruh pertemuan mata kuliah sekaligus.
@@ -62,7 +62,7 @@ Mulai dari pengerjaan kuis (Pre-Test & Post-Test) secara terukur, simulasi memba
 Ekstensi ini dapat dipasang dengan mudah di semua peramban berbasis Chromium (Google Chrome, Microsoft Edge, Brave, Opera, Vivaldi):
 
 1. **Unduh / Siapkan Folder Ekstensi**:
-   * Pastikan Anda telah memiliki folder `Mentari Copilot` hasil ekstraksi file ZIP yang dibagikan.
+   * Pastikan Anda telah memiliki folder `9Score` hasil ekstraksi file ZIP yang dibagikan.
 2. **Buka Menu Ekstensi Browser**:
    * Ketik alamat berikut di address bar browser Anda:
      ```text
@@ -73,9 +73,9 @@ Ekstensi ini dapat dipasang dengan mudah di semua peramban berbasis Chromium (Go
    * Di pojok kanan atas layar, nyalakan tombol **Developer mode** (Mode Pengembang).
 4. **Muat Ekstensi**:
    * Klik tombol **Load unpacked** (Muat yang belum dibongkar) di pojok kiri atas.
-   * Pilih folder ekstensi `Mentari Copilot`.
+   * Pilih folder ekstensi `9Score`.
 5. **Selesai!**
-   * Ekstensi **Mentari Copilot** berhasil terpasang dan siap digunakan. Sematkan (*pin*) ikon Mentari Copilot di toolbar browser Anda untuk kemudahan akses.
+   * Ekstensi **9Score** berhasil terpasang dan siap digunakan. Sematkan (*pin*) ikon 9Score di toolbar browser Anda untuk kemudahan akses.
 
 ### 📦 Build & Obfuskasi Kode (Untuk Membagikan ke Teman)
 
@@ -88,7 +88,7 @@ npm run build
 Perintah di atas akan secara otomatis:
 1. Meng-obfuscate seluruh file JavaScript ke dalam folder `dist/` sehingga kode tidak dapat dibaca, diubah, atau di-reverse engineer.
 2. Menyalin seluruh aset gambar, manifest, icon, dan stylesheet.
-3. Menghasilkan arsip siap bagi `Mentari-Copilot-v1.3.0.zip`. Teman Anda cukup mengekstrak zip tersebut dan memuatnya via **Load unpacked** di browser mereka.
+3. Menghasilkan arsip siap bagi `9Score-v1.3.0.zip`. Teman Anda cukup mengekstrak zip tersebut dan memuatnya via **Load unpacked** di browser mereka.
 
 ---
 
@@ -97,7 +97,7 @@ Perintah di atas akan secara otomatis:
 1. **Masuk ke LMS Mentari**:
    * Buka portal [mentari.unpam.ac.id](https://mentari.unpam.ac.id) dan login ke akun mahasiswa Anda.
 2. **Widget Mengambang Otomatis**:
-   * Masuk ke halaman mata kuliah Anda. Panel mengambang **Mentari Copilot** akan otomatis muncul di sudut kanan bawah.
+   * Masuk ke halaman mata kuliah Anda. Panel mengambang **9Score** akan otomatis muncul di sudut kanan bawah.
 3. **Pilih Pertemuan & Jalankan**:
    * Klik checkbox pertemuan yang ingin Anda selesaikan (atau klik tombol **Belum Selesai** untuk memilih otomatis).
    * Klik tombol **Jalankan Otomatisasi**.
@@ -107,7 +107,7 @@ Perintah di atas akan secara otomatis:
 
 ## ⚙️ Ringkasan Pengaturan Ekstensi
 
-Buka Popup Mentari Copilot di toolbar browser untuk mengakses setelan cepat:
+Buka Popup 9Score di toolbar browser untuk mengakses setelan cepat:
 
 | Pengaturan | Pilihan | Penjelasan |
 | :--- | :--- | :--- |
@@ -150,12 +150,11 @@ Ekstensi ini dikembangkan dan didedikasikan untuk kemudahan belajar mahasiswa:
 * **Special Thanks**: Seluruh rekan dan kontributor pengembang komunitas mahasiswa UNPAM.
 
 ```text
-  __  __            _             _    ____            _ _       _   
- |  \/  | ___ _ __ | |_ __ _ _ __(_)  / ___|___  _ __ (_) | ___ | |_ 
- | |\/| |/ _ \ '_ \| __/ _` | '__| | | |   / _ \| '_ \| | |/ _ \| __|
- | |  | |  __/ | | | || (_| | |  | | | |__| (_) | |_) | | | (_) | |_ 
- |_|  |_|\___|_| |_|\__\__,_|_|  |_|  \____\___/| .__/|_|_|\___/ \__|
-                                                |_|                  
+   ___  ____                     
+  / _ \/ ___|  ___ ___  _ __ ___ 
+ | (_) \___ \ / __/ _ \| '__/ _ \
+  \__, |___) | (_| (_) | | |  __/
+    /_/|____/ \___\___/|_|  \___|
                Created with passion by 009's Core.
 ```
 
