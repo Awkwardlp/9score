@@ -1,0 +1,1014 @@
+/* ==========================================================================
+   Mentari Copilot — Apple iPhone / iOS Glassmorphism Design System
+   Unified Dark Frosted Glass Experience (No Light Mode Toggle)
+   ========================================================================== */
+
+:root,
+[data-theme="dark"] {
+  color-scheme: dark;
+  
+  /* Glass Surface Tokens */
+  --ios-glass-bg: rgba(18, 20, 25, 0.78);
+  --ios-glass-header: rgba(22, 24, 29, 0.85);
+  --ios-glass-card: rgba(255, 255, 255, 0.045);
+  --ios-glass-card-hover: rgba(255, 255, 255, 0.075);
+  --ios-glass-inner: rgba(0, 0, 0, 0.32);
+  
+  /* Borders & Specular Sheen */
+  --ios-border: rgba(255, 255, 255, 0.12);
+  --ios-border-subtle: rgba(255, 255, 255, 0.08);
+  --ios-border-focus: rgba(255, 255, 255, 0.4);
+  --ios-specular-top: inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  --ios-specular-bold: inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  
+  /* Apple Typography Hierarchy */
+  --ios-text-primary: #f5f5f7;
+  --ios-text-secondary: #a1a1a6;
+  --ios-text-tertiary: #6e6e73;
+  --ios-text-quaternary: #48484a;
+  
+  /* Apple Button Primaries */
+  --ios-btn-primary-bg: linear-gradient(180deg, #ffffff 0%, #e2e8f0 100%);
+  --ios-btn-primary-hover: linear-gradient(180deg, #ffffff 0%, #cbd5e1 100%);
+  --ios-btn-primary-text: #090a10;
+  
+  /* Accent Colors (iOS Vibrancy) */
+  --ios-blue: #0a84ff;
+  --ios-blue-glass: rgba(10, 132, 255, 0.16);
+  --ios-blue-border: rgba(10, 132, 255, 0.35);
+  --ios-blue-text: #5ac8fa;
+  
+  --ios-green: #30d158;
+  --ios-green-glass: rgba(48, 209, 88, 0.15);
+  --ios-green-border: rgba(48, 209, 88, 0.35);
+  --ios-green-text: #30d158;
+  
+  --ios-amber: #ffd60a;
+  --ios-amber-glass: rgba(255, 214, 10, 0.14);
+  --ios-amber-border: rgba(255, 214, 10, 0.32);
+  --ios-amber-text: #ffd60a;
+  
+  --ios-red: #ff453a;
+  --ios-red-glass: rgba(255, 69, 58, 0.16);
+  --ios-red-border: rgba(255, 69, 58, 0.35);
+  --ios-red-text: #ff6961;
+
+  /* Shadows */
+  --ios-shadow-popup: 0 16px 40px rgba(0, 0, 0, 0.5);
+  --ios-shadow-card: 0 8px 24px rgba(0, 0, 0, 0.28);
+  --ios-shadow-btn: 0 4px 14px rgba(0, 0, 0, 0.35);
+
+  /* Notion compatibility aliases */
+  --notion-bg: #0d0f15;
+  --notion-card: var(--ios-glass-card);
+  --notion-border: var(--ios-border);
+  --notion-text-primary: var(--ios-text-primary);
+  --notion-text-secondary: var(--ios-text-secondary);
+  --notion-blue-text: var(--ios-text-primary);
+  --notion-blue: #ffffff;
+  --notion-btn-text: var(--ios-btn-primary-text);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background: #090b10;
+  color: var(--ios-text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  width: 600px;
+  min-height: 100%;
+  background: 
+    radial-gradient(120% 120% at 50% -10%, rgba(195, 205, 220, 0.16) 0%, rgba(20, 22, 28, 0.85) 50%, #090a0d 100%),
+    #090a0d;
+  color: var(--ios-text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 12.5px;
+  line-height: 1.45;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Subtle Apple Ambient Glow Behind Elements (Platinum Silver) */
+body::before {
+  content: "";
+  position: fixed;
+  top: -100px;
+  right: -80px;
+  width: 280px;
+  height: 280px;
+  background: radial-gradient(circle, rgba(215, 225, 240, 0.09) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  bottom: -60px;
+  left: -60px;
+  width: 240px;
+  height: 240px;
+  background: radial-gradient(circle, rgba(190, 200, 215, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* iOS Minimal Smooth Scrollbars */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.32);
+}
+
+.font-mono {
+  font-family: "SF Mono", ui-monospace, Menlo, Monaco, Consolas, monospace !important;
+}
+
+/* ==========================================================================
+   Header — iPhone Frosted Glass Top Navigation Bar
+   ========================================================================== */
+.notion-app-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--ios-glass-header);
+  background-image: 
+    radial-gradient(circle at 92% 50%, rgba(220, 225, 235, 0.15) 0%, rgba(200, 208, 220, 0.03) 40%, rgba(18, 20, 25, 0.75) 75%, rgba(10, 11, 14, 0.92) 100%),
+    repeating-conic-gradient(from 0deg at 92% 50%, rgba(18, 20, 26, 0.75) 0deg 9deg, rgba(42, 46, 56, 0.75) 9deg 18deg);
+  backdrop-filter: blur(28px) saturate(190%);
+  -webkit-backdrop-filter: blur(28px) saturate(190%);
+  border-bottom: 1px solid var(--ios-border);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+}
+
+.header-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 11px 15px;
+  gap: 12px;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+.hero-icon-box {
+  width: 38px;
+  height: 38px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--ios-specular-bold), 0 4px 12px rgba(0, 0, 0, 0.35);
+  flex-shrink: 0;
+  padding: 3px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.hero-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.4));
+}
+
+.hero-meta {
+  min-width: 0;
+}
+
+.hero-title-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.page-title {
+  font-size: 14.5px;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: #ffffff;
+  line-height: 1.25;
+}
+
+.notion-tag {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: 9999px;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.tag-blue {
+  background: var(--ios-blue-glass);
+  border: 1px solid var(--ios-blue-border);
+  color: var(--ios-blue-text);
+}
+
+.tag-gray {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: var(--ios-text-secondary);
+}
+
+.hero-subtitle {
+  font-size: 11px;
+  color: var(--ios-text-secondary);
+  margin-top: 2px;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+/* iOS Glass Action Header Button */
+.icon-btn-header {
+  height: 28px;
+  padding: 0 10px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 9999px;
+  color: #f5f5f7;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  font-size: 11.5px;
+  font-weight: 500;
+  box-shadow: var(--ios-specular-top), 0 2px 6px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+}
+
+.icon-btn-header:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.28);
+  color: #ffffff;
+  transform: translateY(-0.5px);
+}
+
+.icon-btn-header:active {
+  transform: scale(0.97);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.header-btn-text {
+  font-size: 11.5px;
+  letter-spacing: -0.01em;
+}
+
+.btn-header-save {
+  background: var(--ios-btn-primary-bg) !important;
+  border-color: rgba(255, 255, 255, 0.85) !important;
+  color: var(--ios-btn-primary-text) !important;
+  font-weight: 600 !important;
+  box-shadow: var(--ios-specular-bold), 0 2px 8px rgba(0, 0, 0, 0.35) !important;
+}
+
+.btn-header-save:hover {
+  background: var(--ios-btn-primary-hover) !important;
+  color: #000000 !important;
+  transform: translateY(-0.5px);
+  box-shadow: var(--ios-specular-bold), 0 4px 12px rgba(0, 0, 0, 0.45) !important;
+}
+
+.btn-header-save:active {
+  transform: scale(0.97);
+}
+
+/* Range Slider */
+.range-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 3px;
+}
+
+.range-row input[type="range"] {
+  flex: 1;
+  height: 5px;
+  accent-color: #ffffff;
+  cursor: pointer;
+}
+
+.range-value {
+  min-width: 40px;
+  font-family: var(--font-mono, monospace);
+  font-size: 11px;
+  font-weight: 700;
+  color: #ffffff;
+  text-align: right;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--ios-border);
+  padding: 2.5px 6px;
+  border-radius: 6px;
+  box-shadow: var(--ios-specular-top);
+}
+
+/* Quiz Settings Grid & Symmetrical Cards */
+.quiz-settings-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 11px;
+  align-items: stretch;
+}
+
+.quiz-card-group {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.quiz-card-inner {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 8px;
+  min-height: 68px;
+}
+
+/* Lock Status Badge */
+.lock-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 1.5px 7px;
+  border-radius: 9999px;
+  letter-spacing: 0.02em;
+  transition: all 0.2s ease;
+  line-height: 1.2;
+}
+
+.lock-status-badge.locked {
+  background: rgba(255, 69, 58, 0.14);
+  color: #ff6961;
+  border: 1px solid rgba(255, 69, 58, 0.32);
+}
+
+.lock-status-badge.active {
+  background: rgba(48, 209, 88, 0.14);
+  color: #30d158;
+  border: 1px solid rgba(48, 209, 88, 0.32);
+}
+
+/* Locked Card Effect */
+#humanizeSection.is-locked {
+  background: rgba(14, 18, 27, 0.45);
+  border-color: rgba(255, 255, 255, 0.07);
+}
+
+#humanizeSection.is-locked .group-title {
+  color: var(--ios-text-secondary);
+  opacity: 0.85;
+}
+
+#humanizeSection.is-locked .notion-property-card {
+  background: rgba(0, 0, 0, 0.20);
+  border-color: rgba(255, 255, 255, 0.05);
+}
+
+#humanizeSection.is-locked .range-row {
+  opacity: 0.38;
+  filter: grayscale(0.8);
+  pointer-events: none;
+}
+
+#humanizeSection.is-locked input[type="range"] {
+  cursor: not-allowed;
+}
+
+/* Explainer notices */
+.lock-explainer {
+  font-size: 11px;
+  line-height: 1.35;
+  margin-top: 1px;
+}
+
+.lock-notice-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 5px;
+  color: var(--ios-text-secondary);
+  font-size: 10.5px;
+  line-height: 1.35;
+}
+
+.lock-notice-box strong {
+  color: #fca5a5;
+  font-weight: 600;
+}
+
+.lock-icon-mini {
+  color: #ff6961;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.active-notice-box {
+  color: var(--ios-text-secondary);
+  font-size: 10.5px;
+  line-height: 1.35;
+}
+
+/* ==========================================================================
+   Main Content Layout & iOS Frosted Glass Cards
+   ========================================================================== */
+.notion-content {
+  position: relative;
+  z-index: 1;
+  padding: 13px 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.notion-grid-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 11px;
+}
+
+.notion-col {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+
+/* iOS Frosted Glass Group */
+.notion-block-group {
+  background: var(--ios-glass-card);
+  border: 1px solid var(--ios-border);
+  border-radius: 14px;
+  padding: 11px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  box-shadow: var(--ios-specular-top), var(--ios-shadow-card);
+  backdrop-filter: blur(18px) saturate(180%);
+  -webkit-backdrop-filter: blur(18px) saturate(180%);
+  transition: background 0.18s ease, border-color 0.18s ease;
+}
+
+.notion-block-group:hover {
+  background: var(--ios-glass-card-hover);
+  border-color: rgba(255, 255, 255, 0.16);
+}
+
+.group-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 2px;
+}
+
+.group-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+}
+
+.group-title svg {
+  color: var(--ios-text-secondary);
+  flex-shrink: 0;
+}
+
+/* Sub-card inside group */
+.notion-property-card {
+  background: var(--ios-glass-inner);
+  border: 1px solid var(--ios-border-subtle);
+  border-radius: 10px;
+  padding: 8px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transition: border-color 0.15s ease;
+}
+
+.notion-property-card:hover {
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+.property-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--ios-text-secondary);
+}
+
+/* ==========================================================================
+   iOS Inputs, Selects & Form Controls
+   ========================================================================== */
+.select-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.select-wrapper::after {
+  content: "";
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 4.5px solid var(--ios-text-secondary);
+  pointer-events: none;
+}
+
+.notion-select,
+.notion-input {
+  width: 100%;
+  height: 30px;
+  padding: 0 10px;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid var(--ios-border);
+  border-radius: 8px;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 12px;
+  outline: none;
+  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.notion-select {
+  appearance: none;
+  -webkit-appearance: none;
+  padding-right: 26px;
+  cursor: pointer;
+}
+
+.notion-select option {
+  background: #141722;
+  color: #ffffff;
+}
+
+.notion-select:focus,
+.notion-input:focus {
+  border-color: var(--ios-border-focus);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.12), inset 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.notion-input::placeholder {
+  color: var(--ios-text-tertiary);
+}
+
+.input-with-button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.input-with-button .notion-input {
+  flex: 1;
+}
+
+.btn-ghost-sm {
+  height: 30px;
+  padding: 0 9px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--ios-border);
+  border-radius: 8px;
+  color: var(--ios-text-primary);
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.15s ease;
+  box-shadow: var(--ios-specular-top);
+}
+
+.btn-ghost-sm:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.field-label {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--ios-text-secondary);
+  display: block;
+  margin-bottom: 3px;
+}
+
+.helper-text {
+  font-size: 10.5px;
+  color: var(--ios-text-tertiary);
+  line-height: 1.4;
+  display: block;
+}
+
+.error-text {
+  color: var(--ios-red-text) !important;
+}
+
+/* ==========================================================================
+   iOS Checkboxes & Custom Checkmarks (High Contrast ::after)
+   ========================================================================== */
+.notion-checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  user-select: none;
+  font-size: 11.5px;
+  line-height: 1.35;
+}
+
+.notion-checkbox-row input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.custom-checkbox {
+  width: 16px;
+  height: 16px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1.2px solid rgba(255, 255, 255, 0.30);
+  border-radius: 4.5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.notion-checkbox-row:hover .custom-checkbox {
+  background: rgba(255, 255, 255, 0.20);
+  border-color: rgba(255, 255, 255, 0.50);
+}
+
+/* Active / Checked State: Translucent Frosted Glass Fill */
+.notion-checkbox-row input[type="checkbox"]:checked + .custom-checkbox {
+  background-color: rgba(255, 255, 255, 0.34);
+  border-color: rgba(255, 255, 255, 0.80);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+.notion-checkbox-row:hover input[type="checkbox"]:checked + .custom-checkbox {
+  background-color: rgba(255, 255, 255, 0.42);
+  border-color: #ffffff;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.45);
+}
+
+/* Crisp White Checkmark on Translucent Background */
+.notion-checkbox-row input[type="checkbox"]:checked + .custom-checkbox::after {
+  content: "";
+  display: block;
+  width: 4px;
+  height: 8px;
+  border: solid #ffffff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  margin-top: -1.5px;
+  margin-left: 0.5px;
+}
+
+.checkbox-label {
+  color: var(--ios-text-primary);
+  font-size: 11.5px;
+  font-weight: 450;
+}
+
+.notion-checklist {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding-top: 2px;
+}
+
+.mt-1 {
+  margin-top: 4px;
+}
+
+/* ==========================================================================
+   Details / Expandables & Callouts
+   ========================================================================== */
+.notion-details {
+  border-top: 1px solid var(--ios-border-subtle);
+  padding-top: 7px;
+  margin-top: 2px;
+}
+
+.details-content {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.notion-callout {
+  background: var(--ios-glass-inner);
+  border: 1px solid var(--ios-border-subtle);
+  border-radius: 10px;
+  padding: 9px 11px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.callout-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.oauth-status {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  flex-shrink: 0;
+}
+
+.indicator.connected {
+  background: var(--ios-green);
+  box-shadow: 0 0 8px rgba(48, 209, 88, 0.6);
+}
+
+.indicator.disconnected {
+  background: var(--ios-red);
+  box-shadow: 0 0 8px rgba(255, 69, 58, 0.6);
+}
+
+.oauth-text {
+  font-size: 11px;
+  color: var(--ios-text-secondary);
+}
+
+.btn-oauth {
+  height: 26px;
+  padding: 0 10px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--ios-border);
+  border-radius: 7px;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.15s ease;
+}
+
+.btn-oauth:hover {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.btn-link {
+  background: none;
+  border: none;
+  color: var(--ios-text-secondary);
+  font-size: 11px;
+  font-weight: 500;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 4px;
+  border-radius: 4px;
+  transition: color 0.12s ease;
+}
+
+.btn-link:hover {
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   Action Buttons (Apple Glossy Primary & Glass Secondary)
+   ========================================================================== */
+.actions-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 2px;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.btn-primary {
+  height: 35px;
+  padding: 0 16px;
+  background: var(--ios-btn-primary-bg);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  border-radius: 10px;
+  color: var(--ios-btn-primary-text);
+  font-family: inherit;
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--ios-specular-bold), var(--ios-shadow-btn);
+  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: var(--ios-btn-primary-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--ios-specular-bold), 0 6px 18px rgba(0, 0, 0, 0.45);
+}
+
+.btn-primary:active:not(:disabled) {
+  transform: scale(0.98);
+  opacity: 0.95;
+}
+
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  height: 35px;
+  padding: 0 14px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--ios-border);
+  border-radius: 10px;
+  color: #f5f5f7;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--ios-specular-top);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.24);
+  color: #ffffff;
+  transform: translateY(-0.5px);
+}
+
+.btn-secondary:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.btn-secondary:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* ==========================================================================
+   Status Banner (iOS Frosted Callout)
+   ========================================================================== */
+.status {
+  padding: 9px 12px;
+  border-radius: 10px;
+  font-size: 11.5px;
+  line-height: 1.45;
+  display: none;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: var(--ios-specular-top);
+  animation: fadeInStatus 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes fadeInStatus {
+  from { opacity: 0; transform: translateY(-3px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.status.ok {
+  display: block;
+  background: var(--ios-green-glass);
+  border: 1px solid var(--ios-green-border);
+  color: #55e67c;
+}
+
+.status.error {
+  display: block;
+  background: var(--ios-red-glass);
+  border: 1px solid var(--ios-red-border);
+  color: var(--ios-red-text);
+}
+
+.status.info {
+  display: block;
+  background: var(--ios-blue-glass);
+  border: 1px solid var(--ios-blue-border);
+  color: var(--ios-blue-text);
+}
+
+/* ==========================================================================
+   Footer — iPhone Frosted Glass Bottom Bar
+   ========================================================================== */
+.notion-footer {
+  margin-top: 4px;
+  padding-top: 10px;
+  border-top: 1px solid var(--ios-border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--ios-text-tertiary);
+}
+
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.footer-logo-img {
+  width: 14px;
+  height: 14px;
+  object-fit: contain;
+  opacity: 0.8;
+}
+
+.footer-brand {
+  font-weight: 500;
+  color: var(--ios-text-secondary);
+}
+
+.footer-sep {
+  opacity: 0.4;
+}
+
+.footer-right {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.footer-version {
+  font-size: 10.5px;
+}

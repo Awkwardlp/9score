@@ -1,0 +1,797 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mentari Copilot — Pusat Konfigurasi</title>
+    <link rel="stylesheet" href="options.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <!-- SIDEBAR KIRI -->
+      <aside class="app-sidebar">
+        <div class="sidebar-brand">
+          <img src="../../assets/images/MentariLogo-Dark.png" alt="Logo" class="sidebar-logo" />
+          <div class="sidebar-brand-text">
+            <span class="sidebar-title">Mentari Copilot</span>
+            <span class="sidebar-subtitle">Created by 009's Core.</span>
+          </div>
+        </div>
+
+        <nav class="sidebar-nav" id="settingsTabs">
+          <div class="nav-section-title">Konfigurasi Inti</div>
+
+          <button type="button" class="sidebar-nav-item active" data-tab="tab-general">
+            <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line>
+              <line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line>
+              <line x1="1" y1="14" x2="7" y2="14"></line><line x1="9" y1="8" x2="15" y2="8"></line><line x1="17" y1="16" x2="23" y2="16"></line>
+            </svg>
+            <span class="nav-label">Umum &amp; Tampilan</span>
+          </button>
+
+          <button type="button" class="sidebar-nav-item" data-tab="tab-ai">
+            <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
+              <rect x="9" y="9" width="6" height="6"></rect>
+              <line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line>
+              <line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line>
+              <line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line>
+              <line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line>
+            </svg>
+            <span class="nav-label">Model AI &amp; Engine</span>
+          </button>
+
+          <button type="button" class="sidebar-nav-item" data-tab="tab-runner">
+            <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+            </svg>
+            <span class="nav-label">Mentari Copilot Runner</span>
+          </button>
+
+          <button type="button" class="sidebar-nav-item" data-tab="tab-quiz">
+            <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 11 12 14 22 4"></polyline>
+              <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+            </svg>
+            <span class="nav-label">Kuis &amp; Evaluasi</span>
+          </button>
+
+          <button type="button" class="sidebar-nav-item" data-tab="tab-forum">
+            <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            </svg>
+            <span class="nav-label">Diskusi Forum LMS</span>
+          </button>
+
+          <div class="nav-section-title">Akademik &amp; Pemulihan</div>
+
+          <button type="button" class="sidebar-nav-item" data-tab="tab-context">
+            <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+            </svg>
+            <span class="nav-label">Konteks RPS &amp; Silabus</span>
+          </button>
+
+          <button type="button" class="sidebar-nav-item" data-tab="tab-backup">
+            <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+              <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+              <line x1="12" y1="22.08" x2="12" y2="12"></line>
+            </svg>
+            <span class="nav-label">Backup &amp; Diagnostik</span>
+          </button>
+        </nav>
+
+        <div class="sidebar-footer">
+          <div class="sidebar-status-box">
+            <span class="indicator connected"></span>
+            <span class="sidebar-status-text">LMS Mentari Terhubung</span>
+          </div>
+          <div class="sidebar-univ">Universitas Pamulang · v1.3.0 Beta</div>
+        </div>
+      </aside>
+
+      <!-- WORKSPACE UTAMA KANAN -->
+      <main class="app-main">
+        <!-- TOPBAR HEADER -->
+        <header class="app-topbar">
+          <div class="topbar-left">
+            <div class="topbar-breadcrumb">
+              <span>Pengaturan</span>
+              <span class="crumb-sep">/</span>
+              <span id="activeTabBreadcrumb" class="crumb-current">Umum &amp; Tampilan</span>
+            </div>
+            <h1 id="activeTabHeading" class="topbar-title">Umum &amp; Tampilan</h1>
+          </div>
+
+          <div class="topbar-actions">
+            <span id="status" class="status-indicator"></span>
+            <button id="btnCancel" type="button" class="btn-secondary">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+              <span>Kembalikan</span>
+            </button>
+            <button id="save" type="button" class="btn-primary">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
+                <polyline points="17 21 17 13 7 13 7 21"></polyline>
+                <polyline points="7 3 7 8 15 8"></polyline>
+              </svg>
+              <span>Simpan Pengaturan</span>
+            </button>
+          </div>
+        </header>
+
+        <!-- KONTEN SCROLL -->
+        <div class="app-scroll-content">
+          <div class="content-wrapper">
+
+            <!-- TAB 1: UMUM & TAMPILAN -->
+            <div id="tab-general" class="tab-pane active">
+              <div class="form-section">
+                <div class="section-heading-row">
+                  <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path>
+                  </svg>
+                  <h2 class="section-heading">Tampilan &amp; Tata Letak Antarmuka</h2>
+                </div>
+
+                <div class="property-grid">
+                  <div class="property-card">
+                    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+                      <label class="field-label" for="widgetPosSelect" style="margin-bottom:0;">
+                        <svg class="field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                          <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line>
+                        </svg>
+                        Posisi Awal Floating Widget
+                      </label>
+                      <button id="btnResetWidgetPos" type="button" class="btn-link" title="Kembalikan posisi widget ke default" style="font-size:11px;color:var(--ios-blue);cursor:pointer;background:none;border:none;padding:0;text-decoration:none;font-weight:500;">
+                        Reset Posisi
+                      </button>
+                    </div>
+                    <div class="select-wrapper">
+                      <select id="widgetPosSelect" class="notion-select">
+                        <option value="bottom-right">Kanan Bawah (Default)</option>
+                        <option value="top-right">Kanan Atas</option>
+                        <option value="bottom-left">Kiri Bawah</option>
+                        <option value="top-left">Kiri Atas</option>
+                      </select>
+                    </div>
+                    <span class="field-helper">Widget tetap dapat Anda geser bebas secara langsung di halaman LMS.</span>
+                  </div>
+
+                  <div class="property-card">
+                    <label class="field-label" for="glassEffectSelect">
+                      <svg class="field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle><path d="m4.93 4.93 4.24 4.24"></path><path d="m14.83 9.17 4.24-4.24"></path><path d="m14.83 14.83 4.24 4.24"></path><path d="m9.17 14.83-4.24 4.24"></path>
+                      </svg>
+                      Intensitas Blur Glassmorphism
+                    </label>
+                    <div class="select-wrapper">
+                      <select id="glassEffectSelect" class="notion-select">
+                        <option value="default">Frosted Glass — Blur 28px (Apple iOS)</option>
+                        <option value="ultra">Ultra Translucent — Blur 36px (Transparan Maksimal)</option>
+                        <option value="contrast">High Contrast — Blur 16px (Pekat &amp; Tajam)</option>
+                      </select>
+                    </div>
+                    <span class="field-helper">Tampilan kaca buram transparan aktif di seluruh antarmuka ekstensi.</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-section">
+                <div class="section-heading-row">
+                  <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                  </svg>
+                  <h2 class="section-heading">Notifikasi Suara &amp; Desktop</h2>
+                </div>
+
+                <div class="property-grid">
+                  <div class="property-card">
+                    <label class="notion-checkbox-row">
+                      <input id="soundNotification" type="checkbox" />
+                      <span class="custom-checkbox"></span>
+                      <span class="checkbox-label">
+                        <strong>Nada Dering Suara (Audio Chime)</strong>
+                        <small class="checkbox-sub">Membunyikan nada lembut saat 1 pertemuan atau seluruh antrean batch selesai.</small>
+                      </span>
+                    </label>
+                  </div>
+
+                  <div class="property-card">
+                    <label class="notion-checkbox-row">
+                      <input id="desktopNotification" type="checkbox" />
+                      <span class="custom-checkbox"></span>
+                      <span class="checkbox-label">
+                        <strong>Notifikasi Desktop Browser</strong>
+                        <small class="checkbox-sub">Memunculkan notifikasi sistem ketika otomatisasi selesai saat Anda membuka tab lain.</small>
+                      </span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- TAB 2: MODEL & AI ENGINE -->
+            <div id="tab-ai" class="tab-pane">
+              <div class="form-section">
+                <div class="section-heading-row">
+                  <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                  </svg>
+                  <h2 class="section-heading">Metode Provider &amp; Autentikasi</h2>
+                </div>
+
+                <div class="property-grid">
+                  <div class="property-card">
+                    <label class="field-label" for="providerSelect">
+                      <svg class="field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon>
+                      </svg>
+                      Metode Provider AI
+                    </label>
+                    <select id="providerSelect" class="notion-select">
+                      <option value="route">Route Bersama (Bebas Kuota, API Key Resmi)</option>
+                      <option value="apiKey">Gemini API Key (Google AI Studio Pribadi)</option>
+                      <option value="oauth">Google OAuth (Login Akun Google)</option>
+                    </select>
+                    <span class="field-helper">Gunakan Route Bersama dengan API Key resmi terkonfigurasi.</span>
+                  </div>
+
+                  <div class="property-card" id="routeKeyCard">
+                    <label class="field-label" for="routeKeyInput">
+                      <svg class="field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                        <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                      </svg>
+                      API Key Route Bersama
+                    </label>
+                    <div class="input-with-button">
+                      <input id="routeKeyInput" type="password" class="notion-input font-mono" placeholder="Masukkan Route Key..." />
+                      <button id="toggleRouteKeyVisibility" type="button" class="btn-ghost-sm">Lihat</button>
+                    </div>
+                    <span class="field-helper">Kunci API yang digunakan untuk request ke endpoint Route Bersama.</span>
+                  </div>
+
+                  <div class="property-card">
+                    <label class="field-label" for="apiKeyInput">
+                      <svg class="field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 2l-2 2m-1.5 1.5L12 11l4 4 5.5-5.5a2.12 2.12 0 0 0 0-3L21 2z"></path><path d="M3 21l6-6"></path>
+                      </svg>
+                      Google Gemini API Key
+                    </label>
+                    <div class="input-with-button">
+                      <input id="apiKeyInput" type="password" class="notion-input font-mono" placeholder="AIzaSy... (API Key)" />
+                      <button id="toggleKeyVisibility" type="button" class="btn-ghost-sm">Lihat</button>
+                    </div>
+                    <span class="field-helper">Koneksi pribadi berkecepatan tinggi dari Google AI Studio.</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-section">
+                <div class="section-heading-row">
+                  <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline>
+                  </svg>
+                  <h2 class="section-heading">Katalog Model Gemini &amp; Model ID Kustom</h2>
+                </div>
+
+                <div class="property-grid">
+                  <div class="property-card">
+                    <label class="field-label" for="modelSelect">
+                      <svg class="field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line>
+                      </svg>
+                      Model Gemini Utama
+                    </label>
+                    <select id="modelSelect" class="notion-select font-mono">
+                      <option value="mentari">mentari (Route Bersama)</option>
+                      <option value="gemini-flash-lite-latest">gemini-flash-lite-latest (Tercepat ~1.7s, Direkomendasikan)</option>
+                      <option value="gemini-3.1-flash-lite-preview">gemini-3.1-flash-lite-preview (Next-Gen Cepat)</option>
+                      <option value="gemini-3-flash-preview">gemini-3-flash-preview (Cerdas ~2.6s)</option>
+                      <option value="gemini-2.5-flash">gemini-2.5-flash (Stabil &amp; Cepat)</option>
+                      <option value="gemini-2.5-pro">gemini-2.5-pro (Reasoning / Akurasi Puncak)</option>
+                    </select>
+                    <span class="field-helper">Pilihan default <strong>gemini-flash-lite-latest</strong> menghasilkan respon tercepat.</span>
+                  </div>
+
+                  <div class="property-card">
+                    <label class="field-label" for="customModelInput">
+                      <svg class="field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline>
+                      </svg>
+                      Model ID Kustom (Tingkat Lanjut)
+                    </label>
+                    <input id="customModelInput" type="text" class="notion-input font-mono" placeholder="misal: gemini-2.0-flash atau model fine-tuned" />
+                    <span class="field-helper">Model ini akan diprioritaskan melebihi daftar dropdown jika diisi.</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-section">
+                <div class="section-heading-row">
+                  <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                  </svg>
+                  <h2 class="section-heading">Parameter Inferensi &amp; Ketahanan Sambungan</h2>
+                </div>
+
+                <div class="property-grid">
+                  <div class="property-card">
+                    <label class="field-label">
+                      <svg class="field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                      </svg>
+                      Temperatur AI (Kreativitas vs Presisi)
+                    </label>
+                    <div class="range-row">
+                      <input id="temperatureInput" type="range" min="0" max="1" step="0.05" value="0.2" />
+                      <span id="temperatureVal" class="range-value">0.20</span>
+                    </div>
+                    <span class="field-helper">0.0 = Presisi kaku &amp; pasti (ideal untuk kuis). 0.7 = Variatif &amp; ekspresif untuk forum.</span>
+                  </div>
+
+                  <div class="property-card">
+                    <label class="field-label" for="maxTokensInput">
+                      <svg class="field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line>
+                      </svg>
+                      Maksimum Token Output
+                    </label>
+                    <input id="maxTokensInput" type="number" min="512" max="8192" step="256" class="notion-input font-mono" />
+                    <span class="field-helper">Batas panjang token respon AI (Default: 4096 token).</span>
+                  </div>
+                </div>
+
+                <div class="property-card">
+                  <label class="notion-checkbox-row">
+                    <input id="failoverToRoute" type="checkbox" checked />
+                    <span class="custom-checkbox"></span>
+                    <span class="checkbox-label">
+                      <strong>Auto-Failover ke Route Bersama</strong>
+                      <small class="checkbox-sub">Jika kuota API Key habis (HTTP 429), otomatis alihkan permintaan ke Route Bersama agar pengerjaan tidak terputus.</small>
+                    </span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <!-- TAB 3: MENTARI COPILOT RUNNER (MULTI-TASK) -->
+            <div id="tab-runner" class="tab-pane">
+              <div class="form-section">
+                <div class="section-heading-row">
+                  <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                  </svg>
+                  <h2 class="section-heading">Fase Aktivitas Otomatisasi</h2>
+                </div>
+
+                <div class="property-card">
+                  <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));gap:12px">
+                    <label class="notion-checkbox-row">
+                      <input id="runnerAutoQuiz" type="checkbox" checked />
+                      <span class="custom-checkbox"></span>
+                      <span class="checkbox-label">
+                        <strong>Pre-Test &amp; Post-Test</strong>
+                        <small class="checkbox-sub">Kerjakan kuis pilihan ganda</small>
+                      </span>
+                    </label>
+                    <label class="notion-checkbox-row">
+                      <input id="runnerAutoMateri" type="checkbox" checked />
+                      <span class="custom-checkbox"></span>
+                      <span class="checkbox-label">
+                        <strong>Materi Modul (PPT/PDF)</strong>
+                        <small class="checkbox-sub">Buka &amp; baca materi modul</small>
+                      </span>
+                    </label>
+                    <label class="notion-checkbox-row">
+                      <input id="runnerAutoForum" type="checkbox" checked />
+                      <span class="custom-checkbox"></span>
+                      <span class="checkbox-label">
+                        <strong>Diskusi Forum Perkuliahan</strong>
+                        <small class="checkbox-sub">Jawab topik diskusi otomatis</small>
+                      </span>
+                    </label>
+                    <label class="notion-checkbox-row">
+                      <input id="runnerAutoKuesioner" type="checkbox" checked />
+                      <span class="custom-checkbox"></span>
+                      <span class="checkbox-label">
+                        <strong>Kuesioner Pembelajaran</strong>
+                        <small class="checkbox-sub">Isi evaluasi dosen skala Ya</small>
+                      </span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-section">
+                <div class="section-heading-row">
+                  <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+                  </svg>
+                  <h2 class="section-heading">Simulasi Waktu &amp; Keamanan Analitik LMS</h2>
+                </div>
+
+                <div class="property-grid">
+                  <div class="property-card">
+                    <label class="field-label">
+                      <svg class="field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                      </svg>
+                      Durasi Simulasi Baca Materi
+                    </label>
+                    <div class="range-row">
+                      <input id="readDurationInput" type="range" min="0" max="60" step="5" value="5" />
+                      <span id="readDurationVal" class="range-value">5s</span>
+                    </div>
+                    <span class="field-helper">Waktu tunggu halaman materi agar log akses tercatat valid oleh analitik dosen (0s = Lewati instan).</span>
+                  </div>
+
+                  <div class="property-card">
+                    <label class="field-label">
+                      <svg class="field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                      </svg>
+                      Jeda Antar Aktivitas (Step Delay)
+                    </label>
+                    <div class="range-row">
+                      <input id="stepDelayInput" type="range" min="300" max="3000" step="100" value="800" />
+                      <span id="stepDelayVal" class="range-value">800ms</span>
+                    </div>
+                    <span class="field-helper">Jeda transisi antar tombol untuk mencegah lonjakan request dan terhindar dari proteksi rate-limit kampus.</span>
+                  </div>
+                </div>
+
+                <div class="property-grid" style="margin-top:10px">
+                  <div class="property-card">
+                    <label class="field-label">
+                      <svg class="field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 10"></polyline>
+                      </svg>
+                      Hitung Mundur Pindah Pertemuan
+                    </label>
+                    <div class="range-row">
+                      <input id="transitionCountdownInput" type="range" min="2" max="15" step="1" value="5" />
+                      <span id="transitionCountdownVal" class="range-value">5s</span>
+                    </div>
+                    <span class="field-helper">Jeda waktu sebelum otomatis berpindah ke pertemuan berikutnya dalam antrean batch (Default: 5 detik).</span>
+                  </div>
+
+                  <div class="property-card">
+                    <label class="notion-checkbox-row">
+                      <input id="skipManualTask" type="checkbox" checked />
+                      <span class="custom-checkbox"></span>
+                      <span class="checkbox-label">
+                        <strong>Lewati Otomatis Tugas Manual</strong>
+                        <small class="checkbox-sub">Jika diskusi menuntut video/proyek/coding/file, lewati &amp; catat ke laporan akhir demi keamanan nilai Anda.</small>
+                      </span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- TAB 4: KUIS & EVALUASI -->
+            <div id="tab-quiz" class="tab-pane">
+              <div class="form-section">
+                <div class="section-heading-row">
+                  <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+                  </svg>
+                  <h2 class="section-heading">Profil Nilai &amp; Mode Pengerjaan Kuis</h2>
+                </div>
+
+                <div class="property-grid">
+                  <div class="property-card">
+                    <label class="field-label" for="quizModeSelect">
+                      <svg class="field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line>
+                      </svg>
+                      Mode Pengerjaan Kuis
+                    </label>
+                    <select id="quizModeSelect" class="notion-select">
+                      <option value="humanis">Humanis — Skor 85–95% (Aman, Simulasi Salah Minor &amp; Jeda Alami)</option>
+                      <option value="ambis">Ambis — Skor 100% (Akurat Penuh, Jeda Singkat 200ms)</option>
+                      <option value="turbo">Turbo — Skor 100% (Instan Tanpa Jeda, Langsung Selesai)</option>
+                    </select>
+                    <span class="field-helper">Mode <strong>Humanis</strong> sangat disarankan agar profil nilai tampak alami seperti mahasiswa sungguhan.</span>
+                  </div>
+
+                  <div class="property-card">
+                    <label class="field-label">
+                      <svg class="field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                      </svg>
+                      Toleransi Salah Sengaja (Mode Humanis)
+                    </label>
+                    <div class="range-row">
+                      <input id="errorRateInput" type="range" min="0" max="25" step="1" value="10" />
+                      <span id="errorRateVal" class="range-value">10%</span>
+                    </div>
+                    <span class="field-helper">Persentase soal yang sengaja disalahkan minor agar skor kuis berkisar di angka 85–95 (bukan selalu 100).</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-section">
+                <div class="section-heading-row">
+                  <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                  </svg>
+                  <h2 class="section-heading">Parameter Eksekusi Kuis</h2>
+                </div>
+
+                <div class="property-grid">
+                  <div class="property-card">
+                    <label class="field-label" for="thresholdInput">
+                      <svg class="field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                      </svg>
+                      Ambang Batas Kepercayaan (Threshold)
+                    </label>
+                    <input id="thresholdInput" type="number" min="0" max="1" step="0.05" class="notion-input font-mono" />
+                    <span class="field-helper">Rentang 0.0 – 1.0. Jawaban AI dengan skor confidence di bawah angka ini akan ditandai untuk review.</span>
+                  </div>
+
+                  <div class="property-card">
+                    <label class="field-label" for="batchSizeInput">
+                      <svg class="field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect>
+                      </svg>
+                      Jumlah Soal per Batch Permintaan AI
+                    </label>
+                    <input id="batchSizeInput" type="number" min="1" max="20" step="1" class="notion-input font-mono" />
+                    <span class="field-helper">Default: 15 soal. Angka lebih besar mempercepat pengerjaan; angka lebih kecil menghemat kuota.</span>
+                  </div>
+                </div>
+
+                <div class="property-card" style="margin-top:10px">
+                  <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
+                    <label class="notion-checkbox-row">
+                      <input id="autoSubmitQuizInput" type="checkbox" checked />
+                      <span class="custom-checkbox"></span>
+                      <span class="checkbox-label">
+                        <strong>Auto-Submit Kuis Saat Selesai</strong>
+                        <small class="checkbox-sub">Otomatis konfirmasi dan submit jawaban kuis saat semua nomor terisi.</small>
+                      </span>
+                    </label>
+                    <div style="display:flex;align-items:center;gap:6px">
+                      <span style="font-size:12px;color:var(--notion-text-secondary)">Hitung mundur:</span>
+                      <input id="submitCountdownInput" type="number" min="0" max="10" step="1" value="3" class="notion-input font-mono" style="width:60px;padding:4px 6px" />
+                      <span style="font-size:12px;color:var(--notion-text-secondary)">detik</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- TAB 5: DISKUSI & FORUM LMS -->
+            <div id="tab-forum" class="tab-pane">
+              <div class="form-section">
+                <div class="section-heading-row">
+                  <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                  </svg>
+                  <h2 class="section-heading">Gaya Bahasa &amp; Karakter Balasan Forum</h2>
+                </div>
+
+                <div class="property-grid">
+                  <div class="property-card">
+                    <label class="field-label" for="forumToneSelect">
+                      <svg class="field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                      </svg>
+                      Gaya Bahasa (Tone of Voice)
+                    </label>
+                    <select id="forumToneSelect" class="notion-select">
+                      <option value="akademis">Mahasiswa Akademis &amp; Formal (Sopan, Ilmiah, Terstruktur — Rekomendasi)</option>
+                      <option value="ringkas">Ringkas &amp; To-the-Point (Padat, Langsung Inti Jawaban)</option>
+                      <option value="kritis">Kritis &amp; Analitis (Sertakan Studi Kasus &amp; Evaluasi)</option>
+                    </select>
+                    <span class="field-helper">Menentukan diksi dan pembawaan AI saat menulis tanggapan diskusi perkuliahan.</span>
+                  </div>
+
+                  <div class="property-card">
+                    <label class="field-label" for="forumLengthSelect">
+                      <svg class="field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="21" y1="10" x2="3" y2="10"></line><line x1="21" y1="6" x2="3" y2="6"></line><line x1="21" y1="14" x2="3" y2="14"></line><line x1="21" y1="18" x2="3" y2="18"></line>
+                      </svg>
+                      Panjang Target Balasan
+                    </label>
+                    <select id="forumLengthSelect" class="notion-select">
+                      <option value="pendek">Pendek (1 paragraf ringkas ~75–120 kata)</option>
+                      <option value="sedang">Sedang (2–3 paragraf berbobot ~150–250 kata — Default)</option>
+                      <option value="panjang">Panjang &amp; Mendalam (3–5 paragraf komprehensif ~300–450 kata)</option>
+                    </select>
+                    <span class="field-helper">Sesuaikan dengan kebiasaan standar diskusi mata kuliah Anda.</span>
+                  </div>
+                </div>
+
+                <div class="property-card" style="margin-top:10px">
+                  <label class="notion-checkbox-row">
+                    <input id="forumIncludeGreeting" type="checkbox" checked />
+                    <span class="custom-checkbox"></span>
+                    <span class="checkbox-label">
+                      <strong>Sisipkan Salam Pembuka &amp; Penutup Sopan</strong>
+                      <small class="checkbox-sub">Contoh: "Selamat pagi/siang Bapak/Ibu Dosen dan rekan-rekan mahasiswa... Terima kasih."</small>
+                    </span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="form-section">
+                <div class="section-heading-row">
+                  <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                  </svg>
+                  <h2 class="section-heading">Filter Kata Kunci Tugas Manual Mahasiswa</h2>
+                </div>
+
+                <div class="property-card">
+                  <label class="field-label" for="manualKeywordsInput">
+                    <svg class="field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="4 7 4 4 20 4 20 7"></polyline><line x1="9" y1="20" x2="15" y2="20"></line><line x1="12" y1="4" x2="12" y2="20"></line>
+                    </svg>
+                    Daftar Kata Kunci Tugas Manual (Dipisahkan Koma)
+                  </label>
+                  <textarea
+                    id="manualKeywordsInput"
+                    rows="3"
+                    class="notion-textarea"
+                    placeholder="video, youtube, vlog, github, tugas kelompok, unggah file, upload file, scan, tulis tangan, tanda tangan"
+                  ></textarea>
+                  <span class="field-helper">Jika topik diskusi mengandung kata kunci di atas, Mentari Copilot Runner akan otomatis melewati (skip) topik tersebut agar Anda bisa mengerjakannya secara manual dan nilai Anda tetap aman.</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- TAB 6: KONTEKS RPS & SILABUS -->
+            <div id="tab-context" class="tab-pane">
+              <div class="form-section">
+                <div class="section-heading-row">
+                  <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline>
+                  </svg>
+                  <h2 class="section-heading">Instruksi Khusus Dosen / Prodi (System Prompt)</h2>
+                </div>
+
+                <div class="property-card">
+                  <label class="field-label" for="systemPromptCustomInput">
+                    <svg class="field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line>
+                    </svg>
+                    Instruksi Khusus Tambahan untuk AI
+                  </label>
+                  <textarea
+                    id="systemPromptCustomInput"
+                    rows="3"
+                    class="notion-textarea"
+                    placeholder="Contoh: Gunakan bahasa Indonesia baku sesuai kurikulum Prodi Teknik Informatika Universitas Pamulang. Utamakan definisi istilah dari modul resmi dosen..."
+                  ></textarea>
+                  <span class="field-helper">Instruksi ini akan ditempelkan ke setiap permintaan AI (kuis &amp; forum) untuk mengarahkan gaya penalaran.</span>
+                </div>
+              </div>
+
+              <div class="form-section">
+                <div class="section-heading-row">
+                  <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                  </svg>
+                  <h2 class="section-heading">Ringkasan RPS &amp; Catatan Kuliah</h2>
+                </div>
+
+                <div class="property-card">
+                  <label class="field-label" for="contextInput">
+                    <svg class="field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                    </svg>
+                    Ringkasan Materi RPS / Silabus Mata Kuliah
+                  </label>
+                  <textarea
+                    id="contextInput"
+                    rows="6"
+                    class="notion-textarea"
+                    placeholder="Tempelkan ringkasan materi, RPS, atau kata kunci modul kuliah untuk meningkatkan ketepatan jawaban kuis..."
+                  ></textarea>
+                  <span class="field-helper">Teks ini disematkan sebagai background context ke AI. Hindari menempelkan data pribadi atau rahasia.</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- TAB 7: BACKUP & PENGEMBANG -->
+            <div id="tab-backup" class="tab-pane">
+              <div class="form-section">
+                <div class="section-heading-row">
+                  <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line>
+                  </svg>
+                  <h2 class="section-heading">Cadangan Konfigurasi (Backup &amp; Restore)</h2>
+                </div>
+
+                <div class="property-card">
+                  <div style="display:flex;gap:12px;flex-wrap:wrap">
+                    <button id="btnExport" type="button" class="btn-secondary">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line>
+                      </svg>
+                      <span>Ekspor Konfigurasi (JSON)</span>
+                    </button>
+                    <button id="btnImport" type="button" class="btn-secondary">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line>
+                      </svg>
+                      <span>Impor Konfigurasi (JSON)</span>
+                    </button>
+                    <input id="importFileInput" type="file" accept=".json" style="display:none" />
+                  </div>
+                  <span class="field-helper">Simpan seluruh pengaturan Anda ke file JSON atau pulihkan konfigurasi dari komputer lain dengan mudah.</span>
+                </div>
+              </div>
+
+              <div class="form-section">
+                <div class="section-heading-row">
+                  <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+                  </svg>
+                  <h2 class="section-heading">Diagnostik &amp; Pemulihan Sistem</h2>
+                </div>
+
+                <div class="property-grid">
+                  <div class="property-card">
+                    <label class="notion-checkbox-row">
+                      <input id="debugInput" type="checkbox" />
+                      <span class="custom-checkbox"></span>
+                      <span class="checkbox-label">
+                        <strong>Mode Debug Pengembang</strong>
+                        <small class="checkbox-sub">Cetak payload API dan alur parsing soal secara rinci ke DevTools Console.</small>
+                      </span>
+                    </label>
+                  </div>
+
+                  <div class="property-card">
+                    <div style="display:flex;align-items:center;justify-content:space-between">
+                      <div>
+                        <strong style="font-size:13px;color:var(--notion-text-primary)">Bersihkan Antrean Runner</strong>
+                        <div style="font-size:11px;color:var(--notion-text-secondary)">Hapus riwayat antrean multi-task di sesi browser.</div>
+                      </div>
+                      <button id="btnClearQueue" type="button" class="btn-secondary" style="padding:5px 12px;font-size:12px">
+                        Bersihkan
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="property-card" style="margin-top:12px;border-color:var(--notion-red-subtle)">
+                  <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
+                    <div>
+                      <strong style="color:var(--notion-red-text);font-size:13px">Reset ke Pengaturan Awal (Factory Reset)</strong>
+                      <div style="font-size:11.5px;color:var(--notion-text-secondary)">Kembalikan seluruh parameter ekstensi ke konfigurasi standar bawaan pabrik.</div>
+                    </div>
+                    <button id="btnFactoryReset" type="button" class="btn-danger">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                      </svg>
+                      <span>Reset Pabrik</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="../shared/constants.js"></script>
+    <script src="../shared/storage.js"></script>
+    <script src="options.js"></script>
+  </body>
+</html>

@@ -1,0 +1,775 @@
+/* ==========================================================================
+   Mentari Copilot — Full Screen Apple iPhone / iOS Glassmorphic Dashboard
+   Unified Dark Frosted Glass Experience (No Light Mode Toggle)
+   ========================================================================== */
+
+:root,
+[data-theme="dark"] {
+  color-scheme: dark;
+  
+  /* Glass Surface Tokens */
+  --ios-glass-bg: rgba(18, 20, 25, 0.75);
+  --ios-glass-sidebar: rgba(16, 18, 22, 0.82);
+  --ios-glass-header: rgba(20, 22, 26, 0.85);
+  --ios-glass-card: rgba(255, 255, 255, 0.045);
+  --ios-glass-card-hover: rgba(255, 255, 255, 0.075);
+  --ios-glass-inner: rgba(0, 0, 0, 0.35);
+  
+  /* Borders & Specular Highlights */
+  --ios-border: rgba(255, 255, 255, 0.12);
+  --ios-border-subtle: rgba(255, 255, 255, 0.08);
+  --ios-border-focus: rgba(255, 255, 255, 0.45);
+  --ios-specular-top: inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  --ios-specular-bold: inset 0 1px 0 rgba(255, 255, 255, 0.3);
+
+  /* Typography Hierarchy */
+  --ios-text-primary: #f5f5f7;
+  --ios-text-secondary: #a1a1a6;
+  --ios-text-tertiary: #6e6e73;
+  
+  /* Button Gradients */
+  --ios-btn-primary-bg: linear-gradient(180deg, #ffffff 0%, #e2e8f0 100%);
+  --ios-btn-primary-hover: linear-gradient(180deg, #ffffff 0%, #cbd5e1 100%);
+  --ios-btn-primary-text: #090a10;
+  
+  /* Vibrant Accents */
+  --ios-blue: #0a84ff;
+  --ios-blue-glass: rgba(10, 132, 255, 0.16);
+  --ios-blue-border: rgba(10, 132, 255, 0.35);
+  --ios-blue-text: #5ac8fa;
+  
+  --ios-green: #30d158;
+  --ios-green-glass: rgba(48, 209, 88, 0.16);
+  --ios-green-border: rgba(48, 209, 88, 0.35);
+  --ios-green-text: #30d158;
+  
+  --ios-amber: #ffd60a;
+  --ios-amber-glass: rgba(255, 214, 10, 0.15);
+  --ios-amber-border: rgba(255, 214, 10, 0.35);
+  --ios-amber-text: #ffd60a;
+  
+  --ios-red: #ff453a;
+  --ios-red-glass: rgba(255, 69, 58, 0.16);
+  --ios-red-border: rgba(255, 69, 58, 0.35);
+  --ios-red-text: #ff6961;
+
+  /* Backward Compatibility Aliases */
+  --notion-bg: #090a0d;
+  --notion-bg-surface: #101216;
+  --notion-card: var(--ios-glass-card);
+  --notion-card-hover: var(--ios-glass-card-hover);
+  --notion-surface-active: rgba(255, 255, 255, 0.1);
+  --notion-border: var(--ios-border);
+  --notion-border-subtle: var(--ios-border-subtle);
+  --notion-border-focus: var(--ios-border-focus);
+  --notion-text-primary: var(--ios-text-primary);
+  --notion-text-secondary: var(--ios-text-secondary);
+  --notion-text-tertiary: var(--ios-text-tertiary);
+  --notion-blue: #ffffff;
+  --notion-blue-hover: #e2e8f0;
+  --notion-blue-subtle: rgba(255, 255, 255, 0.08);
+  --notion-blue-text: #ffffff;
+  --notion-btn-text: var(--ios-btn-primary-text);
+  
+  --header-gradient: 
+    radial-gradient(circle at 95% 50%, rgba(220, 225, 235, 0.15) 0%, rgba(200, 208, 220, 0.03) 40%, rgba(18, 20, 25, 0.75) 75%, rgba(10, 11, 14, 0.92) 100%),
+    repeating-conic-gradient(from 0deg at 95% 50%, rgba(18, 20, 26, 0.75) 0deg 9deg, rgba(42, 46, 56, 0.75) 9deg 18deg);
+  --header-border: var(--ios-border);
+  --logo-gradient: rgba(255, 255, 255, 0.08);
+  --logo-border: rgba(255, 255, 255, 0.2);
+
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: "SF Mono", ui-monospace, Menlo, Monaco, Consolas, monospace;
+  
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background-color: #090b10;
+  color: var(--ios-text-primary);
+  font-family: var(--font-sans);
+  font-size: 13.5px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* iOS Minimal Smooth Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.32);
+}
+
+/* ==========================================================================
+   Full Screen App Shell (Sidebar + Main Workspace)
+   ========================================================================== */
+
+.app-shell {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  background: 
+    radial-gradient(120% 120% at 50% 0%, rgba(195, 205, 220, 0.15) 0%, rgba(20, 22, 28, 0.85) 50%, #090a0d 100%),
+    #090a0d;
+}
+
+/* Ambient glow accents (Platinum Silver) */
+.app-shell::before {
+  content: "";
+  position: fixed;
+  top: -150px;
+  right: -100px;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(215, 225, 240, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* --- SIDEBAR --- */
+.app-sidebar {
+  width: 260px;
+  min-width: 260px;
+  max-width: 260px;
+  height: 100vh;
+  background: var(--ios-glass-sidebar);
+  border-right: 1px solid var(--ios-border);
+  backdrop-filter: blur(30px) saturate(190%);
+  -webkit-backdrop-filter: blur(30px) saturate(190%);
+  display: flex;
+  flex-direction: column;
+  user-select: none;
+  z-index: 20;
+  box-shadow: 4px 0 24px rgba(0, 0, 0, 0.35);
+}
+
+.sidebar-brand {
+  height: 72px;
+  box-sizing: border-box;
+  padding: 0 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--header-gradient);
+  border-bottom: 1px solid var(--header-border);
+  flex-shrink: 0;
+}
+
+.sidebar-logo {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 3px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: var(--ios-specular-bold), 0 4px 12px rgba(0, 0, 0, 0.3);
+  flex-shrink: 0;
+}
+
+.sidebar-brand-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.sidebar-title {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+
+.sidebar-subtitle {
+  font-size: 11px;
+  color: var(--ios-text-secondary);
+  white-space: nowrap;
+}
+
+.sidebar-nav {
+  flex: 1;
+  padding: 14px 10px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.nav-section-title {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ios-text-tertiary);
+  padding: 12px 12px 6px 12px;
+}
+
+.sidebar-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  width: 100%;
+  padding: 9px 12px;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  color: var(--ios-text-secondary);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sidebar-nav-item:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: #ffffff;
+}
+
+.sidebar-nav-item.active {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+  font-weight: 600;
+  box-shadow: var(--ios-specular-top), 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar-nav-item .nav-icon {
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+  stroke: currentColor;
+  stroke-width: 1.9;
+}
+
+.sidebar-footer {
+  padding: 14px 18px;
+  border-top: 1px solid var(--ios-border-subtle);
+  font-size: 11.5px;
+  color: var(--ios-text-secondary);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.sidebar-status-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.indicator.connected {
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  background-color: var(--ios-green);
+  box-shadow: 0 0 8px rgba(48, 209, 88, 0.6);
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.sidebar-status-text {
+  font-size: 11.5px;
+  color: var(--ios-text-primary);
+  font-weight: 500;
+}
+
+.sidebar-univ {
+  font-size: 11px;
+  color: var(--ios-text-tertiary);
+}
+
+/* --- MAIN WORKSPACE --- */
+.app-main {
+  flex: 1;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: transparent;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+.app-topbar {
+  height: 72px;
+  box-sizing: border-box;
+  padding: 0 32px;
+  border-bottom: 1px solid var(--header-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--header-gradient);
+  backdrop-filter: blur(28px) saturate(190%);
+  -webkit-backdrop-filter: blur(28px) saturate(190%);
+  flex-shrink: 0;
+  z-index: 10;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+}
+
+.topbar-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.topbar-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11.5px;
+  color: var(--ios-text-secondary);
+  margin-bottom: 2px;
+}
+
+.crumb-sep {
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.crumb-current {
+  color: var(--ios-text-primary);
+  font-weight: 600;
+}
+
+.topbar-title {
+  font-size: 21px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.025em;
+}
+
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.status-indicator {
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--ios-text-secondary);
+  transition: all 0.2s ease;
+}
+
+.status-indicator.ok {
+  color: #55e67c;
+  font-weight: 600;
+}
+
+.status-indicator.error {
+  color: var(--ios-red-text);
+  font-weight: 600;
+}
+
+.app-scroll-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 28px 36px 90px 36px;
+}
+
+.content-wrapper {
+  max-width: 1080px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+/* ==========================================================================
+   Tab Panes & Forms
+   ========================================================================== */
+
+.tab-pane {
+  display: none;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.tab-pane.active {
+  display: flex;
+  animation: fadeIn 0.15s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.form-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.section-heading-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.section-icon {
+  width: 15px;
+  height: 15px;
+  color: var(--ios-text-primary);
+  stroke: currentColor;
+  stroke-width: 2;
+}
+
+.section-heading {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ios-text-secondary);
+}
+
+.property-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 14px;
+}
+
+.property-card {
+  background: var(--ios-glass-card);
+  border: 1px solid var(--ios-border);
+  border-radius: var(--radius-lg);
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: var(--ios-specular-top), 0 8px 30px rgba(0, 0, 0, 0.32);
+  backdrop-filter: blur(18px) saturate(180%);
+  -webkit-backdrop-filter: blur(18px) saturate(180%);
+  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.property-card:hover {
+  background: var(--ios-glass-card-hover);
+  border-color: rgba(255, 255, 255, 0.18);
+  box-shadow: var(--ios-specular-top), 0 12px 36px rgba(0, 0, 0, 0.42);
+}
+
+.field-label-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.field-label {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--ios-text-primary);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.field-icon {
+  width: 14px;
+  height: 14px;
+  color: var(--ios-text-secondary);
+  stroke: currentColor;
+  stroke-width: 2;
+}
+
+.field-helper {
+  font-size: 11px;
+  color: var(--ios-text-secondary);
+  line-height: 1.45;
+}
+
+/* ==========================================================================
+   Inputs, Controls & Buttons
+   ========================================================================== */
+
+.notion-input,
+.notion-select,
+.notion-textarea {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.35);
+  color: #ffffff;
+  border: 1px solid var(--ios-border);
+  border-radius: var(--radius-sm);
+  padding: 8px 12px;
+  font-family: inherit;
+  font-size: 13px;
+  outline: none;
+  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.notion-select option {
+  background: #141722;
+  color: #ffffff;
+}
+
+.notion-input:focus,
+.notion-select:focus,
+.notion-textarea:focus {
+  border-color: var(--ios-border-focus);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.12), inset 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.notion-textarea {
+  resize: vertical;
+  min-height: 110px;
+  line-height: 1.5;
+}
+
+.input-with-button {
+  display: flex;
+  gap: 8px;
+}
+
+.input-with-button input {
+  flex: 1;
+}
+
+.btn-ghost-sm {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--ios-border);
+  color: var(--ios-text-primary);
+  border-radius: var(--radius-sm);
+  padding: 0 12px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  box-shadow: var(--ios-specular-top);
+  transition: all 0.15s ease;
+}
+
+.btn-ghost-sm:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+}
+
+/* Range Slider */
+.range-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.range-row input[type="range"] {
+  flex: 1;
+  height: 5px;
+  accent-color: #ffffff;
+  cursor: pointer;
+}
+
+.range-value {
+  min-width: 54px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  color: #ffffff;
+  text-align: right;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--ios-border);
+  padding: 3px 8px;
+  border-radius: 6px;
+  box-shadow: var(--ios-specular-top);
+}
+
+/* iOS Custom Checkbox */
+.notion-checkbox-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.notion-checkbox-row input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.custom-checkbox {
+  width: 17px;
+  height: 17px;
+  border: 1.2px solid rgba(255, 255, 255, 0.30);
+  border-radius: 4.5px;
+  background: rgba(255, 255, 255, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.notion-checkbox-row:hover .custom-checkbox {
+  background: rgba(255, 255, 255, 0.20);
+  border-color: rgba(255, 255, 255, 0.50);
+}
+
+/* Active / Checked State: Translucent Frosted Glass Fill */
+.notion-checkbox-row input[type="checkbox"]:checked + .custom-checkbox {
+  background-color: rgba(255, 255, 255, 0.34);
+  border-color: rgba(255, 255, 255, 0.80);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+.notion-checkbox-row:hover input[type="checkbox"]:checked + .custom-checkbox {
+  background-color: rgba(255, 255, 255, 0.42);
+  border-color: #ffffff;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.45);
+}
+
+/* Crisp White Checkmark on Translucent Background */
+.notion-checkbox-row input[type="checkbox"]:checked + .custom-checkbox::after {
+  content: "";
+  display: block;
+  width: 4px;
+  height: 8.5px;
+  border: solid #ffffff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  margin-top: -1.5px;
+  margin-left: 0.5px;
+}
+
+.checkbox-label {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.checkbox-label strong {
+  font-size: 13px;
+  color: var(--ios-text-primary);
+  font-weight: 600;
+}
+
+.checkbox-sub {
+  font-size: 11.5px;
+  color: var(--ios-text-secondary);
+}
+
+/* Action Buttons */
+.btn-primary {
+  background: var(--ios-btn-primary-bg);
+  color: var(--ios-btn-primary-text);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  border-radius: var(--radius-sm);
+  padding: 8px 18px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  cursor: pointer;
+  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  box-shadow: var(--ios-specular-bold), 0 4px 14px rgba(0, 0, 0, 0.35);
+  user-select: none;
+}
+
+.btn-primary:hover {
+  background: var(--ios-btn-primary-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--ios-specular-bold), 0 6px 18px rgba(0, 0, 0, 0.45);
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
+  opacity: 0.95;
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.08);
+  color: #f5f5f7;
+  border: 1px solid var(--ios-border);
+  border-radius: var(--radius-sm);
+  padding: 8px 15px;
+  font-family: inherit;
+  font-size: 12.5px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: var(--ios-specular-top);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  user-select: none;
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.24);
+  color: #ffffff;
+  transform: translateY(-0.5px);
+}
+
+.btn-secondary:active {
+  transform: scale(0.98);
+}
+
+.btn-danger {
+  background: linear-gradient(180deg, rgba(255, 69, 58, 0.85) 0%, rgba(215, 45, 35, 0.85) 100%);
+  color: #ffffff;
+  border: 1px solid rgba(255, 100, 90, 0.4);
+  border-radius: var(--radius-sm);
+  padding: 8px 16px;
+  font-family: inherit;
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  box-shadow: 0 4px 14px rgba(255, 69, 58, 0.3);
+  user-select: none;
+}
+
+.btn-danger:hover {
+  background: linear-gradient(180deg, rgba(255, 80, 70, 0.95) 0%, rgba(230, 50, 40, 0.95) 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(255, 69, 58, 0.45);
+}
+
+.btn-danger:active {
+  transform: scale(0.98);
+}
+
+.font-mono {
+  font-family: var(--font-mono) !important;
+}

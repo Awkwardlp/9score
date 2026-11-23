@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="id" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mentari Copilot</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <!-- Unified Notion Header -->
+    <header class="notion-app-header">
+      <div class="header-main">
+        <div class="header-left">
+          <div class="hero-icon-box">
+            <img class="hero-logo-img" src="../../assets/images/MentariLogo-Dark.png" alt="Mentari Copilot" />
+          </div>
+          <div class="hero-meta">
+            <div class="hero-title-row">
+              <h1 class="page-title">Mentari Copilot</h1>
+            </div>
+            <p class="hero-subtitle">Created by 009's Core.</p>
+          </div>
+        </div>
+
+        <div class="header-controls">
+          <!-- Save Settings Button (Header) -->
+          <button id="save" type="button" class="icon-btn-header btn-header-save" title="Simpan Semua Pengaturan">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
+              <polyline points="17 21 17 13 7 13 7 21"></polyline>
+              <polyline points="7 3 7 8 15 8"></polyline>
+            </svg>
+            <span class="header-btn-text">Simpan</span>
+          </button>
+
+          <!-- Settings Page Shortcut -->
+          <button id="openOptions" type="button" class="icon-btn-header" title="Buka Pengaturan Lanjutan">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="3"></circle>
+              <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+            </svg>
+            <span class="header-btn-text">Pengaturan</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="notion-content">
+      <div class="notion-grid-2col">
+        <!-- KOLOM KIRI: AUTENTIKASI & MODE KUIS -->
+        <div class="notion-col">
+          <!-- SECTION: AUTENTIKASI -->
+          <section class="notion-block-group">
+            <div class="group-header">
+              <span class="group-title">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                </svg>
+                Autentikasi &amp; Sumber AI
+              </span>
+            </div>
+
+            <!-- Property: Sumber AI -->
+            <div class="notion-property-card">
+              <label class="property-label" for="provider">
+                <span>Metode Provider AI</span>
+              </label>
+              <div class="select-wrapper">
+                <select id="provider" class="notion-select">
+                  <option value="route">Route Bersama (API Key Resmi)</option>
+                  <option value="apiKey">Gemini API Key (Kuota Pribadi)</option>
+                  <option value="oauth">Google OAuth (Cadangan)</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Route Info Banner (Tampil saat mode Route) -->
+            <div id="routeInfoBox" class="notion-property-card" style="display:none;">
+              <div class="oauth-status">
+                <span class="indicator connected"></span>
+                <span class="oauth-text font-medium">Route Bersama Mentari</span>
+              </div>
+              <span class="helper-text">Endpoint Route Bersama aktif dengan API Key resmi terkonfigurasi.</span>
+            </div>
+
+            <!-- Notion Callout: OAuth Box (Tampil saat mode OAuth) -->
+            <div id="oauthBox" class="notion-callout" style="display:none;">
+              <div class="callout-main">
+                <div class="oauth-status">
+                  <span id="oauthIndicator" class="indicator disconnected"></span>
+                  <span id="oauthText" class="oauth-text">Memeriksa status akun Google…</span>
+                </div>
+                <small id="oauthError" class="helper-text error-text" style="display:none;"></small>
+              </div>
+              <button id="oauthBtn" type="button" class="btn-oauth">Login via Google</button>
+            </div>
+
+            <!-- Details: Manual Key Section (Tampil saat mode API Key) -->
+            <details id="manualKeySection" class="notion-details" open style="display:none;">
+              <summary class="details-summary" style="display:none;">
+                <span>API Key Gemini</span>
+              </summary>
+              <div class="details-content">
+                <label class="field-label" for="apiKey">API Key Gemini</label>
+                <div class="input-with-button">
+                  <input
+                    id="apiKey"
+                    type="password"
+                    autocomplete="off"
+                    spellcheck="false"
+                    placeholder="AIzaSy... (API Key Gemini)"
+                    class="notion-input font-mono"
+                  />
+                  <button id="toggleKey" type="button" class="btn-ghost-sm" title="Tampilkan/Sembunyikan Key">Lihat</button>
+                </div>
+
+                <div style="display:flex;align-items:center;justify-content:space-between;gap:6px;">
+                  <label class="notion-checkbox-row">
+                    <input id="useApiKey" type="checkbox" checked />
+                    <span class="custom-checkbox"></span>
+                    <span class="checkbox-label" style="font-size:11px;">Jadikan prioritas utama</span>
+                  </label>
+                  <button id="applyKey" type="button" class="btn-secondary" style="height:24px;padding:0 9px;font-size:10.5px;">
+                    Tes Koneksi
+                  </button>
+                </div>
+                <span class="helper-text">Koneksi pribadi bebas antrean dari Google AI Studio.</span>
+              </div>
+            </details>
+          </section>
+        </div>
+
+        <!-- KOLOM KANAN: MODEL AI & FITUR AKTIF -->
+        <div class="notion-col">
+          <!-- SECTION: MODEL GEMINI AI -->
+          <section class="notion-block-group">
+            <div class="group-header">
+              <span class="group-title">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
+                  <rect x="9" y="9" width="6" height="6"></rect>
+                  <line x1="9" y1="1" x2="9" y2="4"></line>
+                  <line x1="15" y1="1" x2="15" y2="4"></line>
+                  <line x1="9" y1="20" x2="9" y2="23"></line>
+                  <line x1="15" y1="20" x2="15" y2="23"></line>
+                  <line x1="20" y1="9" x2="23" y2="9"></line>
+                  <line x1="20" y1="14" x2="23" y2="14"></line>
+                  <line x1="1" y1="9" x2="4" y2="9"></line>
+                  <line x1="1" y1="14" x2="4" y2="14"></line>
+                </svg>
+                Model Gemini AI
+              </span>
+              <button id="refreshModels" type="button" class="btn-link" title="Perbarui daftar model dari Google">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2"/>
+                </svg>
+                <span>Segarkan</span>
+              </button>
+            </div>
+            <div class="notion-property-card">
+              <div class="select-wrapper">
+                <select id="modelSelect" class="notion-select font-mono">
+                  <option value="mentari">mentari (Route Gratis)</option>
+                  <option value="gemini-flash-lite-latest">gemini-flash-lite-latest</option>
+                  <option value="gemini-2.0-flash-lite">gemini-2.0-flash-lite</option>
+                  <option value="gemini-3-flash-preview">gemini-3-flash-preview</option>
+                  <option value="gemini-2.5-flash">gemini-2.5-flash</option>
+                </select>
+              </div>
+              <small id="modelMeta" class="helper-text">Model respons tercepat otomatis diprioritaskan.</small>
+            </div>
+          </section>
+
+          <!-- SECTION: FITUR AKTIF -->
+          <section class="notion-block-group">
+            <div class="group-header">
+              <span class="group-title">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="9 11 12 14 22 4"></polyline>
+                  <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+                </svg>
+                Fitur Aktif LMS Mentari
+              </span>
+            </div>
+            <div class="notion-checklist">
+              <label class="notion-checkbox-row">
+                <input id="featQuiz" type="checkbox" />
+                <span class="custom-checkbox"></span>
+                <span class="checkbox-label">Kuis / Pre-Test / Post-Test Otomatis</span>
+              </label>
+              <label class="notion-checkbox-row">
+                <input id="featKuesioner" type="checkbox" />
+                <span class="custom-checkbox"></span>
+                <span class="checkbox-label">Kuesioner Otomatis (Skala Ya / Tidak)</span>
+              </label>
+              <label class="notion-checkbox-row">
+                <input id="featForum" type="checkbox" />
+                <span class="custom-checkbox"></span>
+                <span class="checkbox-label">Bantuan Diskusi &amp; Respon Forum LMS</span>
+              </label>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <!-- GRID PENGATURAN KUIS: SIMETRIS 2 KOLOM -->
+      <div class="notion-grid-2col quiz-settings-grid">
+        <!-- Card Kiri: Mode Pengerjaan Kuis -->
+        <section class="notion-block-group quiz-card-group">
+          <div class="group-header">
+            <span class="group-title">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="4" y1="21" x2="4" y2="14"></line>
+                <line x1="4" y1="10" x2="4" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12" y2="3"></line>
+                <line x1="20" y1="21" x2="20" y2="16"></line>
+                <line x1="20" y1="12" x2="20" y2="3"></line>
+                <line x1="1" y1="14" x2="7" y2="14"></line>
+                <line x1="9" y1="8" x2="15" y2="8"></line>
+                <line x1="17" y1="16" x2="23" y2="16"></line>
+              </svg>
+              Mode Pengerjaan Kuis
+            </span>
+          </div>
+          <div class="notion-property-card quiz-card-inner">
+            <div class="select-wrapper">
+              <select id="quizMode" class="notion-select">
+                <option value="humanis">Humanis — Skor 85–95% (Aman)</option>
+                <option value="ambis">Ambis — Skor 100% (Cepat)</option>
+                <option value="turbo">Turbo — Skor 100% (Instan)</option>
+              </select>
+            </div>
+            <label class="notion-checkbox-row">
+              <input id="autoSubmitQuiz" type="checkbox" checked />
+              <span class="custom-checkbox"></span>
+              <span class="checkbox-label">Auto-submit kuis saat selesai</span>
+            </label>
+          </div>
+        </section>
+
+        <!-- Card Kanan: Toleransi Salah Sengaja (Mode Humanis) -->
+        <section id="humanizeSection" class="notion-block-group quiz-card-group">
+          <div class="group-header">
+            <span class="group-title">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+              </svg>
+              Toleransi Salah Sengaja
+            </span>
+            <span id="humanizeLockBadge" class="lock-status-badge"></span>
+          </div>
+          <div class="notion-property-card quiz-card-inner">
+            <div class="range-row">
+              <input id="humanizeErrorRate" type="range" min="0" max="25" step="1" value="10" />
+              <span id="humanizeErrorRateVal" class="range-value">10%</span>
+            </div>
+            <div id="humanizeDesc" class="helper-text lock-explainer"></div>
+          </div>
+        </section>
+      </div>
+
+      <!-- SECTION: RESPON DISKUSI & FORUM LMS -->
+      <section class="notion-block-group" style="margin-top:2px;">
+        <div class="group-header">
+          <span class="group-title">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            </svg>
+            Respon Diskusi &amp; Forum LMS
+          </span>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:11px;">
+          <div class="notion-property-card">
+            <label class="property-label" for="forumTone">
+              <span>Gaya Bahasa (Tone of Voice)</span>
+            </label>
+            <div class="select-wrapper">
+              <select id="forumTone" class="notion-select">
+                <option value="akademis">Akademis &amp; Formal (Sopan, Ilmiah)</option>
+                <option value="ringkas">Ringkas &amp; To-the-Point (Padat)</option>
+                <option value="kritis">Kritis &amp; Analitis (Studi Kasus)</option>
+              </select>
+            </div>
+            <small class="helper-text">Pembawaan AI saat menulis diskusi.</small>
+          </div>
+          <div class="notion-property-card">
+            <label class="property-label" for="forumLength">
+              <span>Panjang Target Balasan</span>
+            </label>
+            <div class="select-wrapper">
+              <select id="forumLength" class="notion-select">
+                <option value="pendek">Pendek (~75–120 kata)</option>
+                <option value="sedang">Sedang (~150–250 kata — Default)</option>
+                <option value="panjang">Panjang (~300–450 kata)</option>
+              </select>
+            </div>
+            <small class="helper-text">Target jumlah kata/paragraf balasan.</small>
+          </div>
+        </div>
+      </section>
+
+      <!-- STATUS BANNER -->
+      <div id="status" class="status"></div>
+
+      <!-- FOOTER -->
+      <footer class="notion-footer">
+        <div class="footer-left">
+          <img class="footer-logo-img" src="../../assets/images/MentariLogo-Dark.png" alt="Mentari Copilot" />
+          <span class="footer-brand">Mentari Copilot</span>
+          <span class="footer-sep">|</span>
+          <span class="footer-tagline">© 2026 009's Core. All rights reserved.</span>
+        </div>
+        <div class="footer-right">
+          <span class="footer-version font-mono">v1.3.0 Beta</span>
+        </div>
+      </footer>
+    </main>
+
+    <script src="../shared/constants.js"></script>
+    <script src="../shared/storage.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>

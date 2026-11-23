@@ -1,0 +1,72 @@
+{
+  "manifest_version": 3,
+  "name": "Mentari Copilot",
+  "version": "1.3.0",
+  "version_name": "v1.3.0 Beta",
+  "description": "Asisten cerdas kuis, kuesioner, dan forum LMS Mentari UNPAM.",
+  "permissions": [
+    "storage",
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://mentari.unpam.ac.id/*",
+    "https://generativelanguage.googleapis.com/*",
+    "https://accounts.google.com/*",
+    "https://oauth2.googleapis.com/*",
+    "http://localhost/*"
+  ],
+  "background": {
+    "service_worker": "src/background/service-worker.js",
+    "type": "module"
+  },
+  "action": {
+    "default_title": "Mentari Copilot",
+    "default_popup": "src/popup/popup.html",
+    "default_icon": {
+      "16": "assets/icons/icon16.png",
+      "48": "assets/icons/icon48.png",
+      "128": "assets/icons/icon128.png"
+    }
+  },
+  "options_page": "src/options/options.html",
+  "options_ui": {
+    "page": "src/options/options.html",
+    "open_in_tab": true
+  },
+  "icons": {
+    "16": "assets/icons/icon16.png",
+    "48": "assets/icons/icon48.png",
+    "128": "assets/icons/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://mentari.unpam.ac.id/*"],
+      "js": ["src/content/page-bridge.js"],
+      "run_at": "document_start",
+      "world": "MAIN"
+    },
+    {
+      "matches": ["https://mentari.unpam.ac.id/*"],
+      "js": [
+        "src/shared/constants.js",
+        "src/shared/routes.js",
+        "src/shared/selectors.js",
+        "src/shared/storage.js",
+        "src/content/api.js",
+        "src/content/ui.js",
+        "src/content/features/quiz.js",
+        "src/content/features/kuesioner.js",
+        "src/content/features/forum.js",
+        "src/content/meeting-runner.js",
+        "src/content/main.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["assets/images/*", "assets/icons/*"],
+      "matches": ["https://mentari.unpam.ac.id/*"]
+    }
+  ]
+}
