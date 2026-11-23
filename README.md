@@ -155,7 +155,6 @@ Ekstensi ini dikembangkan dan didedikasikan untuk kemudahan belajar mahasiswa:
  | (_) \___ \ / __/ _ \| '__/ _ \
   \__, |___) | (_| (_) | | |  __/
     /_/|____/ \___\___/|_|  \___|
-               Created with passion by 009's Core.
 ```
 
 ---
