@@ -7,7 +7,7 @@
 ### Asisten Cerdas & Otomatisasi Alur Pembelajaran LMS Mentari UNPAM
 **Created by 009's Core.**
 
-[![Version](https://img.shields.io/badge/version-v1.3.0%20Beta-38bdf8.svg?style=flat-square)](manifest.json)
+[![Version](https://img.shields.io/badge/version-v1.3.1%20Beta-38bdf8.svg?style=flat-square)](manifest.json)
 [![Platform](https://img.shields.io/badge/platform-Chrome%20%7C%20Edge%20%7C%20Brave-30d158.svg?style=flat-square)](manifest.json)
 [![Manifest](https://img.shields.io/badge/manifest-V3-f59e0b.svg?style=flat-square)](manifest.json)
 [![License](https://img.shields.io/badge/license-MIT-64748b.svg?style=flat-square)](LICENSE)
@@ -88,7 +88,7 @@ npm run build
 Perintah di atas akan secara otomatis:
 1. Meng-obfuscate seluruh file JavaScript ke dalam folder `dist/` sehingga kode tidak dapat dibaca, diubah, atau di-reverse engineer.
 2. Menyalin seluruh aset gambar, manifest, icon, dan stylesheet.
-3. Menghasilkan arsip siap bagi `9Score-v1.3.0.zip`. Teman Anda cukup mengekstrak zip tersebut dan memuatnya via **Load unpacked** di browser mereka.
+3. Menghasilkan arsip siap bagi `9Score-v1.3.1.zip`. Teman Anda cukup mengekstrak zip tersebut dan memuatnya via **Load unpacked** di browser mereka.
 
 ---
 

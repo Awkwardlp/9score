@@ -33,17 +33,29 @@
             <span class="header-btn-text">Simpan</span>
           </button>
 
-          <!-- Settings Page Shortcut -->
-          <button id="openOptions" type="button" class="icon-btn-header" title="Buka Pengaturan Lanjutan">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <!-- Check Update Releases (Tengah) -->
+          <button id="btnCheckUpdate" type="button" class="icon-btn-header btn-header-update" title="Cek Update Versi Terbaru di GitHub">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <span class="header-btn-text">Update</span>
+          </button>
+
+          <!-- Settings Page Shortcut (Icon Only) -->
+          <button id="openOptions" type="button" class="icon-btn-header icon-only" title="Buka Pengaturan Lanjutan">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <circle cx="12" cy="12" r="3"></circle>
               <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
             </svg>
-            <span class="header-btn-text">Pengaturan</span>
           </button>
         </div>
       </div>
     </header>
+
+    <!-- Apple iOS Dynamic Toast Notification Banner -->
+    <div id="status" class="status" style="display:none;" role="status" aria-live="polite"></div>
 
     <main class="notion-content">
       <!-- SECTION: LISENSI & STATUS AKUN MENTARI -->
@@ -126,9 +138,7 @@
             </label>
             <div class="select-wrapper">
               <select id="provider" class="notion-select">
-                <option value="route">Route Bersama (API Key Resmi)</option>
-                <option value="apiKey">Gemini API Key (Kuota Pribadi)</option>
-                <option value="oauth">Google OAuth (Cadangan)</option>
+                <option value="apiKey" selected>Gemini API Key (Kuota Pribadi)</option>
               </select>
             </div>
           </div>
@@ -154,41 +164,40 @@
             <button id="oauthBtn" type="button" class="btn-oauth">Login via Google</button>
           </div>
 
-          <!-- Details: Manual Key Section (Tampil saat mode API Key) -->
-          <details id="manualKeySection" class="notion-details" open style="display:none;">
-            <summary class="details-summary" style="display:none;">
-              <span>API Key Gemini</span>
-            </summary>
-            <div class="details-content">
-              <label class="field-label" for="apiKey">API Key Gemini</label>
-              <div class="input-with-button">
-                <input
-                  id="apiKey"
-                  type="password"
-                  autocomplete="off"
-                  spellcheck="false"
-                  placeholder="AIzaSy... (API Key Gemini)"
-                  class="notion-input font-mono"
-                />
-                <button id="toggleKey" type="button" class="btn-ghost-sm" title="Tampilkan/Sembunyikan Key">Lihat</button>
-              </div>
-
-              <div style="display:flex;align-items:center;justify-content:space-between;gap:6px;">
-                <label class="notion-checkbox-row">
-                  <input id="useApiKey" type="checkbox" checked />
-                  <span class="custom-checkbox"></span>
-                  <span class="checkbox-label" style="font-size:11px;">Jadikan prioritas utama</span>
-                </label>
-                <button id="applyKey" type="button" class="btn-secondary" style="height:24px;padding:0 9px;font-size:10.5px;">
-                  Tes Koneksi
-                </button>
-              </div>
-              <span class="helper-text">Koneksi pribadi bebas antrean dari Google AI Studio.</span>
+          <!-- Property: API Key Gemini -->
+          <div id="manualKeySection" class="notion-property-card api-key-property-card">
+            <div class="api-key-header-row">
+              <label class="property-label" for="apiKey">
+                <span>API Key Gemini</span>
+              </label>
+              <a id="linkGetApiKey" href="https://aistudio.google.com/app/apikey" target="_blank" class="btn-link-subtle" title="Buka Google AI Studio untuk membuat API Key gratis">Dapatkan Key ↗</a>
             </div>
-          </details>
+
+            <div class="input-with-button">
+              <input
+                id="apiKey"
+                type="password"
+                autocomplete="off"
+                spellcheck="false"
+                placeholder="AIzaSy... (API Key Gemini)"
+                class="notion-input font-mono"
+              />
+              <button id="toggleKey" type="button" class="btn-ghost-sm" title="Tampilkan/Sembunyikan Key">Lihat</button>
+            </div>
+
+            <button id="applyKey" type="button" class="btn-apply-key">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Simpan &amp; Tes Koneksi</span>
+            </button>
+
+            <span class="helper-text">Koneksi pribadi bebas antrean dari Google AI Studio.</span>
+            <input id="useApiKey" type="checkbox" checked style="display:none;" />
+          </div>
         </section>
 
-        <!-- Card Kanan: Model Gemini AI -->
+        <!-- Card Kanan: Model AI -->
         <section class="notion-block-group ai-card-group">
           <div class="group-header">
             <span class="group-title">
@@ -204,7 +213,7 @@
                 <line x1="1" y1="9" x2="4" y2="9"></line>
                 <line x1="1" y1="14" x2="4" y2="14"></line>
               </svg>
-              Model Gemini AI
+              Model AI
             </span>
             <button id="refreshModels" type="button" class="btn-link" title="Perbarui daftar model dari Google">
               <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -216,16 +225,50 @@
           <div class="notion-property-card ai-card-inner">
             <div class="select-wrapper">
               <select id="modelSelect" class="notion-select font-mono">
-                <option value="gemini-flash-lite-latest">gemini-flash-lite-latest (Tercepat ~1.0s, Rekomendasi)</option>
-                <option value="gemini-3.1-flash-lite-preview">gemini-3.1-flash-lite-preview (Next-Gen Cepat ~0.8s)</option>
-                <option value="gemini-3.5-flash-lite">gemini-3.5-flash-lite (Model Terbaru &amp; Cerdas)</option>
-                <option value="gemini-3.1-flash-lite">gemini-3.1-flash-lite (Cepat &amp; Stabil)</option>
+                <option value="gemini-flash-lite-latest">gemini-flash-lite-latest (Tercepat)</option>
+                <option value="gemini-3.1-flash-lite-preview">gemini-3.1-flash-lite-preview (Preview)</option>
+                <option value="gemini-3.5-flash-lite">gemini-3.5-flash-lite (Terbaru)</option>
+                <option value="gemini-3.1-flash-lite">gemini-3.1-flash-lite (Stabil)</option>
                 <option value="gemini-2.5-flash-lite">gemini-2.5-flash-lite</option>
-                <option value="gemini-3-flash-preview">gemini-3-flash-preview (Cerdas &amp; Cepat)</option>
-                <option value="gemini-2.5-flash">gemini-2.5-flash (Stabil &amp; Cepat)</option>
-                <option value="gemini-2.5-pro">gemini-2.5-pro (Akurasi Maksimal)</option>
+                <option value="gemini-3-flash-preview">gemini-3-flash-preview</option>
+                <option value="gemini-2.5-flash">gemini-2.5-flash (Stabil)</option>
+                <option value="gemini-2.5-pro">gemini-2.5-pro (Akurat)</option>
               </select>
             </div>
+
+            <!-- Widget Status Koneksi & Monitor AI -->
+            <div id="aiStatusBox" class="ai-status-card">
+              <div class="ai-status-row">
+                <div class="ai-status-badge">
+                  <span id="modelStatusDot" class="indicator connected"></span>
+                  <span id="modelStatusTitle" class="font-medium">Koneksi AI Siap</span>
+                </div>
+                <button id="btnTestModel" type="button" class="btn-ghost-sm" style="font-size:10px;padding:2px 7px;height:22px;display:inline-flex;align-items:center;gap:3px;" title="Uji latensi respons model saat ini">
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                  </svg>
+                  <span id="btnTestModelText">Tes Ping</span>
+                </button>
+              </div>
+
+              <div class="ai-meta-grid">
+                <div class="ai-meta-item">
+                  <span class="ai-meta-label">Jalur Server</span>
+                  <span id="modelStatusVia" class="ai-meta-val font-mono">Route Bersama</span>
+                </div>
+                <div class="ai-meta-item">
+                  <span class="ai-meta-label">Latensi Respons</span>
+                  <span id="modelStatusLatency" class="ai-meta-val highlight font-mono">⚡ Aktif (~0.8s)</span>
+                </div>
+              </div>
+
+              <div class="ai-tags-row">
+                <span class="ai-tag-pill">✓ Bebas Antrean</span>
+                <span class="ai-tag-pill">✓ 0s Latency</span>
+                <span class="ai-tag-pill">✓ Auto Fallback</span>
+              </div>
+            </div>
+
             <small id="modelMeta" class="helper-text">Model respons tercepat otomatis diprioritaskan.</small>
           </div>
         </section>
@@ -349,6 +392,37 @@
         </div>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:9px;">
           <div class="notion-property-card">
+            <label class="property-label" for="forumPerspective">
+              <span>Sudut Pandang (Perspektif)</span>
+            </label>
+            <div class="select-wrapper">
+              <select id="forumPerspective" class="notion-select">
+                <option value="auto">Acak Dinamis (Anti-Kembar)</option>
+                <option value="praktis">Praktik &amp; Lapangan (Aplikatif)</option>
+                <option value="kritis">Evaluatif &amp; Risiko (Kritis)</option>
+                <option value="teoretis">Konseptual &amp; Teori (Mendalam)</option>
+                <option value="solutif">Solutif &amp; Strategis (Aksi Nyata)</option>
+                <option value="komparatif">Komparatif &amp; Alternatif</option>
+              </select>
+            </div>
+            <small class="helper-text">Lensa berpikir untuk variasi argumen.</small>
+          </div>
+          <div class="notion-property-card">
+            <label class="property-label" for="forumFormatStyle">
+              <span>Struktur Format Penulisan</span>
+            </label>
+            <div class="select-wrapper">
+              <select id="forumFormatStyle" class="notion-select">
+                <option value="auto">Acak Dinamis (Rekomendasi)</option>
+                <option value="naratif">Naratif Mengalir (Esai Alami)</option>
+                <option value="poin">Opini + Butir Poin Terarah</option>
+                <option value="kasus">Akar Masalah &rarr; Solusi</option>
+                <option value="dialektis">Dialektis (Tesis &amp; Antitesis)</option>
+              </select>
+            </div>
+            <small class="helper-text">Variasi tata letak dan bentuk paragraf.</small>
+          </div>
+          <div class="notion-property-card">
             <label class="property-label" for="forumTone">
               <span>Gaya Bahasa (Tone of Voice)</span>
             </label>
@@ -356,7 +430,9 @@
               <select id="forumTone" class="notion-select">
                 <option value="akademis">Akademis &amp; Formal (Sopan, Ilmiah)</option>
                 <option value="ringkas">Ringkas &amp; To-the-Point (Padat)</option>
-                <option value="kritis">Kritis &amp; Analitis (Studi Kasus)</option>
+                <option value="kritis">Kritis &amp; Analitis (Evaluatif)</option>
+                <option value="santai">Santai &amp; Komunikatif (Semi-formal)</option>
+                <option value="analitis">Analitis &amp; Sistematis (Sebab-Akibat)</option>
               </select>
             </div>
             <small class="helper-text">Pembawaan AI saat menulis diskusi.</small>
@@ -367,6 +443,7 @@
             </label>
             <div class="select-wrapper">
               <select id="forumLength" class="notion-select">
+                <option value="auto">Otomatis &amp; Bervariasi (Rekomendasi)</option>
                 <option value="pendek">Pendek (~75–120 kata)</option>
                 <option value="sedang">Sedang (~150–250 kata — Default)</option>
                 <option value="panjang">Panjang (~300–450 kata)</option>
@@ -380,19 +457,17 @@
             </label>
             <div class="select-wrapper">
               <select id="forumOpeningStyle" class="notion-select">
-                <option value="campur">Bervariasi &amp; Natural (Campur: Menurut saya, Izin menjawab, dll — Rekomendasi)</option>
-                <option value="opini">Opini Mahasiswa (Dominan: "Menurut saya...", "Dari kacamata saya...")</option>
-                <option value="izin">Sopan &amp; Santun (Dominan: "Izin menjawab...", "Izin menanggapi...")</option>
-                <option value="langsung">Langsung ke Inti (Terstruktur: "Menjawab Studi Kasus...")</option>
+                <option value="campur">Bervariasi &amp; Natural (Campur — Rekomendasi)</option>
+                <option value="opini">Opini Mahasiswa (Dominan: "Menurut saya...", dll)</option>
+                <option value="izin">Sopan &amp; Santun (Dominan: "Izin menjawab...", dll)</option>
+                <option value="langsung">Langsung ke Inti (Terstruktur)</option>
+                <option value="respons">Interaktif (Menanggapi Rekan Thread)</option>
               </select>
             </div>
             <small class="helper-text">Mengacak variasi awalan alami agar balasan diskusi tidak kaku atau berpola template.</small>
           </div>
         </div>
       </section>
-
-      <!-- STATUS BANNER -->
-      <div id="status" class="status"></div>
 
       <!-- FOOTER -->
       <footer class="notion-footer">
@@ -403,7 +478,7 @@
           <span class="footer-tagline">© 2026 009's Core. All rights reserved.</span>
         </div>
         <div class="footer-right">
-          <span class="footer-version font-mono">v1.3.0 Beta</span>
+          <span class="footer-version font-mono">v1.3.1 Beta</span>
         </div>
       </footer>
     </main>

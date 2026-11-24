@@ -7,58 +7,72 @@
 [data-theme="dark"] {
   color-scheme: dark;
   
+  /* Zinc Dark Palette Tokens */
+  --zinc-950: #090a0d;
+  --zinc-900: #121318;
+  --zinc-850: #16181f;
+  --zinc-800: #1c1e26;
+  --zinc-750: #232630;
+  --zinc-700: #2d313e;
+  --zinc-600: #3f4454;
+  --zinc-500: #71717a;
+  --zinc-400: #a1a1aa;
+  --zinc-300: #d4d4d8;
+  --zinc-200: #e4e4e7;
+  --zinc-100: #f4f4f5;
+
   /* Glass Surface Tokens */
-  --ios-glass-bg: rgba(18, 20, 25, 0.75);
-  --ios-glass-sidebar: rgba(16, 18, 22, 0.82);
-  --ios-glass-header: rgba(20, 22, 26, 0.85);
-  --ios-glass-card: rgba(255, 255, 255, 0.045);
-  --ios-glass-card-hover: rgba(255, 255, 255, 0.075);
-  --ios-glass-inner: rgba(0, 0, 0, 0.35);
+  --ios-glass-bg: #090a0d;
+  --ios-glass-sidebar: #0e0f14;
+  --ios-glass-header: rgba(18, 19, 24, 0.92);
+  --ios-glass-card: #121318;
+  --ios-glass-card-hover: #161820;
+  --ios-glass-inner: #0b0c10;
   
   /* Borders & Specular Highlights */
-  --ios-border: rgba(255, 255, 255, 0.12);
-  --ios-border-subtle: rgba(255, 255, 255, 0.08);
-  --ios-border-focus: rgba(255, 255, 255, 0.45);
-  --ios-specular-top: inset 0 1px 0 rgba(255, 255, 255, 0.15);
-  --ios-specular-bold: inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  --ios-border: rgba(255, 255, 255, 0.08);
+  --ios-border-subtle: rgba(255, 255, 255, 0.05);
+  --ios-border-focus: rgba(255, 255, 255, 0.35);
+  --ios-specular-top: inset 0 1px 0 rgba(255, 255, 255, 0.07);
+  --ios-specular-bold: inset 0 1px 0 rgba(255, 255, 255, 0.15);
 
   /* Typography Hierarchy */
-  --ios-text-primary: #f5f5f7;
-  --ios-text-secondary: #a1a1a6;
-  --ios-text-tertiary: #6e6e73;
+  --ios-text-primary: #f4f4f5;
+  --ios-text-secondary: #a1a1aa;
+  --ios-text-tertiary: #71717a;
   
-  /* Button Gradients */
-  --ios-btn-primary-bg: linear-gradient(180deg, #ffffff 0%, #e2e8f0 100%);
-  --ios-btn-primary-hover: linear-gradient(180deg, #ffffff 0%, #cbd5e1 100%);
-  --ios-btn-primary-text: #090a10;
+  /* Button Primaries */
+  --ios-btn-primary-bg: #ffffff;
+  --ios-btn-primary-hover: #e4e4e7;
+  --ios-btn-primary-text: #090a0d;
   
   /* Vibrant Accents */
   --ios-blue: #0a84ff;
-  --ios-blue-glass: rgba(10, 132, 255, 0.16);
-  --ios-blue-border: rgba(10, 132, 255, 0.35);
-  --ios-blue-text: #5ac8fa;
+  --ios-blue-glass: rgba(10, 132, 255, 0.12);
+  --ios-blue-border: rgba(10, 132, 255, 0.28);
+  --ios-blue-text: #38bdf8;
   
   --ios-green: #30d158;
-  --ios-green-glass: rgba(48, 209, 88, 0.16);
-  --ios-green-border: rgba(48, 209, 88, 0.35);
-  --ios-green-text: #30d158;
+  --ios-green-glass: rgba(48, 209, 88, 0.12);
+  --ios-green-border: rgba(48, 209, 88, 0.28);
+  --ios-green-text: #4ade80;
   
   --ios-amber: #ffd60a;
-  --ios-amber-glass: rgba(255, 214, 10, 0.15);
-  --ios-amber-border: rgba(255, 214, 10, 0.35);
-  --ios-amber-text: #ffd60a;
+  --ios-amber-glass: rgba(255, 214, 10, 0.12);
+  --ios-amber-border: rgba(255, 214, 10, 0.28);
+  --ios-amber-text: #facc15;
   
   --ios-red: #ff453a;
-  --ios-red-glass: rgba(255, 69, 58, 0.16);
-  --ios-red-border: rgba(255, 69, 58, 0.35);
-  --ios-red-text: #ff6961;
+  --ios-red-glass: rgba(255, 69, 58, 0.12);
+  --ios-red-border: rgba(255, 69, 58, 0.28);
+  --ios-red-text: #f87171;
 
   /* Backward Compatibility Aliases */
   --notion-bg: #090a0d;
-  --notion-bg-surface: #101216;
+  --notion-bg-surface: #121318;
   --notion-card: var(--ios-glass-card);
   --notion-card-hover: var(--ios-glass-card-hover);
-  --notion-surface-active: rgba(255, 255, 255, 0.1);
+  --notion-surface-active: rgba(255, 255, 255, 0.09);
   --notion-border: var(--ios-border);
   --notion-border-subtle: var(--ios-border-subtle);
   --notion-border-focus: var(--ios-border-focus);
@@ -66,7 +80,7 @@
   --notion-text-secondary: var(--ios-text-secondary);
   --notion-text-tertiary: var(--ios-text-tertiary);
   --notion-blue: #ffffff;
-  --notion-blue-hover: #e2e8f0;
+  --notion-blue-hover: #e4e4e7;
   --notion-blue-subtle: rgba(255, 255, 255, 0.08);
   --notion-blue-text: #ffffff;
   --notion-btn-text: var(--ios-btn-primary-text);
@@ -76,14 +90,14 @@
     repeating-conic-gradient(from 0deg at 95% 50%, rgba(18, 20, 26, 0.75) 0deg 9deg, rgba(42, 46, 56, 0.75) 9deg 18deg);
   --header-border: var(--ios-border);
   --logo-gradient: rgba(255, 255, 255, 0.08);
-  --logo-border: rgba(255, 255, 255, 0.2);
+  --logo-border: rgba(255, 255, 255, 0.16);
 
   --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --font-mono: "SF Mono", ui-monospace, Menlo, Monaco, Consolas, monospace;
   
-  --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 16px;
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 11px;
 }
 
 * {
@@ -231,32 +245,32 @@ html, body {
 .sidebar-nav-item {
   display: flex;
   align-items: center;
-  gap: 11px;
+  gap: 10px;
   width: 100%;
-  padding: 9px 12px;
+  padding: 7px 11px;
   background: transparent;
   border: 1px solid transparent;
   border-radius: var(--radius-md);
-  color: var(--ios-text-secondary);
+  color: var(--zinc-400);
   font-family: inherit;
-  font-size: 13px;
+  font-size: 12.5px;
   font-weight: 500;
   text-align: left;
   cursor: pointer;
-  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.15s ease;
 }
 
 .sidebar-nav-item:hover {
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.05);
   color: #ffffff;
 }
 
 .sidebar-nav-item.active {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(255, 255, 255, 0.12);
   color: #ffffff;
   font-weight: 600;
-  box-shadow: var(--ios-specular-top), 0 4px 12px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
 }
 
 .sidebar-nav-item .nav-icon {
@@ -465,23 +479,20 @@ html, body {
 }
 
 .property-card {
-  background: var(--ios-glass-card);
+  background: var(--zinc-900);
   border: 1px solid var(--ios-border);
   border-radius: var(--radius-lg);
-  padding: 16px 18px;
+  padding: 15px 17px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  box-shadow: var(--ios-specular-top), 0 8px 30px rgba(0, 0, 0, 0.32);
-  backdrop-filter: blur(18px) saturate(180%);
-  -webkit-backdrop-filter: blur(18px) saturate(180%);
-  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+  gap: 9px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  transition: background 0.15s ease, border-color 0.15s ease;
 }
 
 .property-card:hover {
-  background: var(--ios-glass-card-hover);
-  border-color: rgba(255, 255, 255, 0.18);
-  box-shadow: var(--ios-specular-top), 0 12px 36px rgba(0, 0, 0, 0.42);
+  background: var(--zinc-850);
+  border-color: rgba(255, 255, 255, 0.14);
 }
 
 .field-label-row {
@@ -523,15 +534,15 @@ html, body {
 .notion-textarea {
   width: 100%;
   background: rgba(0, 0, 0, 0.35);
-  color: #ffffff;
+  color: #f4f4f5;
   border: 1px solid var(--ios-border);
   border-radius: var(--radius-sm);
-  padding: 8px 12px;
+  padding: 7px 11px;
   font-family: inherit;
-  font-size: 13px;
+  font-size: 12.5px;
   outline: none;
-  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
+  transition: all 0.15s ease;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25);
 }
 
 .notion-select option {
@@ -542,8 +553,8 @@ html, body {
 .notion-input:focus,
 .notion-select:focus,
 .notion-textarea:focus {
-  border-color: var(--ios-border-focus);
-  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.12), inset 0 1px 2px rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.08), inset 0 1px 2px rgba(0, 0, 0, 0.25);
 }
 
 .notion-textarea {
@@ -627,47 +638,45 @@ html, body {
 }
 
 .custom-checkbox {
-  width: 17px;
-  height: 17px;
-  border: 1.2px solid rgba(255, 255, 255, 0.30);
-  border-radius: 4.5px;
-  background: rgba(255, 255, 255, 0.12);
+  width: 16px;
+  height: 16px;
+  border: 1.2px solid rgba(255, 255, 255, 0.22);
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.05);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
   margin-top: 2px;
-  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.2);
+  transition: all 0.12s ease;
   position: relative;
 }
 
 .notion-checkbox-row:hover .custom-checkbox {
-  background: rgba(255, 255, 255, 0.20);
-  border-color: rgba(255, 255, 255, 0.50);
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.45);
 }
 
-/* Active / Checked State: Translucent Frosted Glass Fill */
+/* Active / Checked State: Solid White Pill with Dark Checkmark */
 .notion-checkbox-row input[type="checkbox"]:checked + .custom-checkbox {
-  background-color: rgba(255, 255, 255, 0.34);
-  border-color: rgba(255, 255, 255, 0.80);
-  box-shadow: 0 0 8px rgba(255, 255, 255, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  background-color: #f4f4f5;
+  border-color: #f4f4f5;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .notion-checkbox-row:hover input[type="checkbox"]:checked + .custom-checkbox {
-  background-color: rgba(255, 255, 255, 0.42);
+  background-color: #ffffff;
   border-color: #ffffff;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.45);
 }
 
-/* Crisp White Checkmark on Translucent Background */
+/* Crisp Dark Checkmark on White Background */
 .notion-checkbox-row input[type="checkbox"]:checked + .custom-checkbox::after {
   content: "";
   display: block;
-  width: 4px;
-  height: 8.5px;
-  border: solid #ffffff;
-  border-width: 0 2px 2px 0;
+  width: 3.5px;
+  height: 7.5px;
+  border: solid #090a0d;
+  border-width: 0 1.8px 1.8px 0;
   transform: rotate(45deg);
   margin-top: -1.5px;
   margin-left: 0.5px;
@@ -692,58 +701,54 @@ html, body {
 
 /* Action Buttons */
 .btn-primary {
-  background: var(--ios-btn-primary-bg);
-  color: var(--ios-btn-primary-text);
-  border: 1px solid rgba(255, 255, 255, 0.85);
+  background: #ffffff;
+  color: #090a0d;
+  border: 1px solid #ffffff;
   border-radius: var(--radius-sm);
-  padding: 8px 18px;
+  padding: 7px 16px;
   font-family: inherit;
-  font-size: 13px;
+  font-size: 12.5px;
   font-weight: 600;
   letter-spacing: -0.01em;
   cursor: pointer;
-  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.15s ease;
   display: inline-flex;
   align-items: center;
-  gap: 7px;
-  box-shadow: var(--ios-specular-bold), 0 4px 14px rgba(0, 0, 0, 0.35);
+  gap: 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
   user-select: none;
 }
 
 .btn-primary:hover {
-  background: var(--ios-btn-primary-hover);
-  transform: translateY(-1px);
-  box-shadow: var(--ios-specular-bold), 0 6px 18px rgba(0, 0, 0, 0.45);
+  background: #e4e4e7;
+  border-color: #e4e4e7;
+  transform: translateY(-0.5px);
 }
 
 .btn-primary:active {
   transform: scale(0.98);
-  opacity: 0.95;
 }
 
 .btn-secondary {
-  background: rgba(255, 255, 255, 0.08);
-  color: #f5f5f7;
+  background: rgba(255, 255, 255, 0.07);
+  color: #f4f4f5;
   border: 1px solid var(--ios-border);
   border-radius: var(--radius-sm);
-  padding: 8px 15px;
+  padding: 7px 14px;
   font-family: inherit;
-  font-size: 12.5px;
+  font-size: 12px;
   font-weight: 500;
   cursor: pointer;
-  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.15s ease;
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  box-shadow: var(--ios-specular-top);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
   user-select: none;
 }
 
 .btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.14);
-  border-color: rgba(255, 255, 255, 0.24);
+  background: rgba(255, 255, 255, 0.13);
+  border-color: rgba(255, 255, 255, 0.2);
   color: #ffffff;
   transform: translateY(-0.5px);
 }

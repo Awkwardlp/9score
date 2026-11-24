@@ -7,59 +7,73 @@
 [data-theme="dark"] {
   color-scheme: dark;
   
-  /* Glass Surface Tokens */
-  --ios-glass-bg: rgba(18, 20, 25, 0.78);
-  --ios-glass-header: rgba(22, 24, 29, 0.85);
-  --ios-glass-card: rgba(255, 255, 255, 0.045);
-  --ios-glass-card-hover: rgba(255, 255, 255, 0.075);
-  --ios-glass-inner: rgba(0, 0, 0, 0.32);
+  /* Zinc Dark Palette Tokens */
+  --zinc-950: #090a0d;
+  --zinc-900: #121318;
+  --zinc-850: #16181f;
+  --zinc-800: #1c1e26;
+  --zinc-750: #232630;
+  --zinc-700: #2d313e;
+  --zinc-600: #3f4454;
+  --zinc-500: #71717a;
+  --zinc-400: #a1a1aa;
+  --zinc-300: #d4d4d8;
+  --zinc-200: #e4e4e7;
+  --zinc-100: #f4f4f5;
+
+  /* Surface & Inset Contrast */
+  --ios-glass-bg: #090a0d;
+  --ios-glass-header: rgba(18, 19, 24, 0.90);
+  --ios-glass-card: #121318;
+  --ios-glass-card-hover: #15161c;
+  --ios-glass-inner: #0b0c10;
   
-  /* Borders & Specular Sheen */
-  --ios-border: rgba(255, 255, 255, 0.12);
-  --ios-border-subtle: rgba(255, 255, 255, 0.08);
-  --ios-border-focus: rgba(255, 255, 255, 0.4);
-  --ios-specular-top: inset 0 1px 0 rgba(255, 255, 255, 0.15);
-  --ios-specular-bold: inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  /* Hairline Borders & Specular Sheen */
+  --ios-border: rgba(255, 255, 255, 0.08);
+  --ios-border-subtle: rgba(255, 255, 255, 0.05);
+  --ios-border-focus: rgba(255, 255, 255, 0.35);
+  --ios-specular-top: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  --ios-specular-bold: inset 0 1px 0 rgba(255, 255, 255, 0.16);
   
-  /* Apple Typography Hierarchy */
-  --ios-text-primary: #f5f5f7;
-  --ios-text-secondary: #a1a1a6;
-  --ios-text-tertiary: #6e6e73;
-  --ios-text-quaternary: #48484a;
+  /* Typography Hierarchy */
+  --ios-text-primary: #f4f4f5;
+  --ios-text-secondary: #a1a1aa;
+  --ios-text-tertiary: #71717a;
+  --ios-text-quaternary: #52525b;
   
-  /* Apple Button Primaries */
-  --ios-btn-primary-bg: linear-gradient(180deg, #ffffff 0%, #e2e8f0 100%);
-  --ios-btn-primary-hover: linear-gradient(180deg, #ffffff 0%, #cbd5e1 100%);
-  --ios-btn-primary-text: #090a10;
+  /* Button Primaries */
+  --ios-btn-primary-bg: #ffffff;
+  --ios-btn-primary-hover: #e4e4e7;
+  --ios-btn-primary-text: #090a0d;
   
-  /* Accent Colors (iOS Vibrancy) */
+  /* Accent Colors (Subdued Vibrancy) */
   --ios-blue: #0a84ff;
-  --ios-blue-glass: rgba(10, 132, 255, 0.16);
-  --ios-blue-border: rgba(10, 132, 255, 0.35);
-  --ios-blue-text: #5ac8fa;
+  --ios-blue-glass: rgba(10, 132, 255, 0.12);
+  --ios-blue-border: rgba(10, 132, 255, 0.28);
+  --ios-blue-text: #38bdf8;
   
   --ios-green: #30d158;
-  --ios-green-glass: rgba(48, 209, 88, 0.15);
-  --ios-green-border: rgba(48, 209, 88, 0.35);
+  --ios-green-glass: rgba(48, 209, 88, 0.12);
+  --ios-green-border: rgba(48, 209, 88, 0.28);
   --ios-green-text: #30d158;
   
   --ios-amber: #ffd60a;
-  --ios-amber-glass: rgba(255, 214, 10, 0.14);
-  --ios-amber-border: rgba(255, 214, 10, 0.32);
+  --ios-amber-glass: rgba(255, 214, 10, 0.12);
+  --ios-amber-border: rgba(255, 214, 10, 0.28);
   --ios-amber-text: #ffd60a;
   
   --ios-red: #ff453a;
-  --ios-red-glass: rgba(255, 69, 58, 0.16);
-  --ios-red-border: rgba(255, 69, 58, 0.35);
-  --ios-red-text: #ff6961;
+  --ios-red-glass: rgba(255, 69, 58, 0.12);
+  --ios-red-border: rgba(255, 69, 58, 0.28);
+  --ios-red-text: #fb7185;
 
   /* Shadows */
   --ios-shadow-popup: 0 16px 40px rgba(0, 0, 0, 0.5);
-  --ios-shadow-card: 0 8px 24px rgba(0, 0, 0, 0.28);
-  --ios-shadow-btn: 0 4px 14px rgba(0, 0, 0, 0.35);
+  --ios-shadow-card: 0 4px 16px rgba(0, 0, 0, 0.25);
+  --ios-shadow-btn: 0 2px 6px rgba(0, 0, 0, 0.2);
 
   /* Notion compatibility aliases */
-  --notion-bg: #0d0f15;
+  --notion-bg: #090a0d;
   --notion-card: var(--ios-glass-card);
   --notion-border: var(--ios-border);
   --notion-text-primary: var(--ios-text-primary);
@@ -176,19 +190,17 @@ body::after {
 }
 
 .hero-icon-box {
-  width: 38px;
-  height: 38px;
-  background: rgba(255, 255, 255, 0.07);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 10px;
+  width: 34px;
+  height: 34px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 9px;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: var(--ios-specular-bold), 0 4px 12px rgba(0, 0, 0, 0.35);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18), 0 2px 6px rgba(0, 0, 0, 0.3);
   flex-shrink: 0;
-  padding: 3px;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  padding: 2.5px;
 }
 
 .hero-logo-img {
@@ -196,7 +208,7 @@ body::after {
   height: 100%;
   object-fit: contain;
   display: block;
-  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.4));
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.35));
 }
 
 .hero-meta {
@@ -211,10 +223,10 @@ body::after {
 }
 
 .page-title {
-  font-size: 14.5px;
-  font-weight: 700;
-  letter-spacing: -0.025em;
-  color: #ffffff;
+  font-size: 13.5px;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: #f4f4f5;
   line-height: 1.25;
 }
 
@@ -222,13 +234,11 @@ body::after {
   display: inline-flex;
   align-items: center;
   white-space: nowrap;
-  font-size: 10px;
-  font-weight: 600;
-  padding: 2px 7px;
+  font-size: 9.5px;
+  font-weight: 500;
+  padding: 1.5px 6px;
   border-radius: 9999px;
   line-height: 1.2;
-  letter-spacing: 0.02em;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .tag-blue {
@@ -238,15 +248,15 @@ body::after {
 }
 
 .tag-gray {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  color: var(--ios-text-secondary);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--zinc-400);
 }
 
 .hero-subtitle {
-  font-size: 11px;
-  color: var(--ios-text-secondary);
-  margin-top: 2px;
+  font-size: 10.5px;
+  color: var(--zinc-400);
+  margin-top: 1px;
   letter-spacing: -0.01em;
   white-space: nowrap;
   overflow: hidden;
@@ -256,62 +266,76 @@ body::after {
 .header-controls {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 7px;
   flex-shrink: 0;
 }
 
-/* iOS Glass Action Header Button */
+/* Header Buttons (Consistent 28px height) */
 .icon-btn-header {
   height: 28px;
   padding: 0 10px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 9999px;
-  color: #f5f5f7;
+  color: #f4f4f5;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 5px;
-  font-size: 11.5px;
+  font-size: 11px;
   font-weight: 500;
-  box-shadow: var(--ios-specular-top), 0 2px 6px rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.15s ease;
   user-select: none;
 }
 
 .icon-btn-header:hover {
-  background: rgba(255, 255, 255, 0.15);
-  border-color: rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.13);
+  border-color: rgba(255, 255, 255, 0.22);
   color: #ffffff;
   transform: translateY(-0.5px);
 }
 
 .icon-btn-header:active {
   transform: scale(0.97);
-  background: rgba(255, 255, 255, 0.2);
+}
+
+.icon-btn-header.icon-only {
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.btn-header-update {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.12);
+  color: #f4f4f5;
+}
+
+.btn-header-update:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.24);
+  color: #ffffff;
 }
 
 .header-btn-text {
-  font-size: 11.5px;
+  font-size: 11px;
   letter-spacing: -0.01em;
 }
 
 .btn-header-save {
-  background: var(--ios-btn-primary-bg) !important;
-  border-color: rgba(255, 255, 255, 0.85) !important;
-  color: var(--ios-btn-primary-text) !important;
+  background: #ffffff !important;
+  border-color: #ffffff !important;
+  color: #09090d !important;
   font-weight: 600 !important;
-  box-shadow: var(--ios-specular-bold), 0 2px 8px rgba(0, 0, 0, 0.35) !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25) !important;
 }
 
 .btn-header-save:hover {
-  background: var(--ios-btn-primary-hover) !important;
+  background: #e4e4e7 !important;
   color: #000000 !important;
   transform: translateY(-0.5px);
-  box-shadow: var(--ios-specular-bold), 0 4px 12px rgba(0, 0, 0, 0.45) !important;
 }
 
 .btn-header-save:active {
@@ -351,7 +375,7 @@ body::after {
 .ai-config-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 11px;
+  gap: 10px;
   align-items: stretch;
 }
 
@@ -363,6 +387,19 @@ body::after {
   justify-content: flex-start;
 }
 
+.ai-card-group .notion-property-card {
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+}
+
+.ai-card-group #manualKeySection {
+  margin-top: 2px;
+  padding-top: 9px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
 .ai-card-inner {
   flex: 1;
   display: flex;
@@ -370,14 +407,153 @@ body::after {
   justify-content: space-between;
   gap: 8px;
   min-height: 68px;
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+}
+
+/* AI Connection & Model Live Status Card */
+.ai-status-card {
+  background: rgba(0, 0, 0, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+  padding: 8px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin: 2px 0 1px 0;
+}
+
+.ai-status-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.ai-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11.5px;
+  font-weight: 500;
+  color: var(--zinc-200);
+}
+
+.ai-meta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  padding: 5px 8px;
+  background: rgba(255, 255, 255, 0.025);
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.ai-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5px;
+}
+
+.ai-meta-label {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--zinc-500);
+  font-weight: 600;
+}
+
+.ai-meta-val {
+  font-size: 11px;
+  color: var(--zinc-300);
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ai-meta-val.highlight {
+  color: #4ade80;
+  font-weight: 600;
+}
+
+.ai-tags-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.ai-tag-pill {
+  font-size: 9.5px;
+  font-weight: 500;
+  padding: 1.5px 6px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.035);
+  color: var(--zinc-400);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* API Key Card Layout */
+.api-key-property-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.api-key-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.api-key-header-row .property-label {
+  margin: 0;
+}
+
+.btn-apply-key {
+  width: 100%;
+  height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 500;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #f4f4f5;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  user-select: none;
+}
+
+.btn-apply-key:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.22);
+  color: #ffffff;
+}
+
+.btn-apply-key:active:not(:disabled) {
+  transform: scale(0.98);
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.btn-apply-key:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
 }
 
 /* Features Checklist 2-Column Grid (Zero Blank Space) */
 .features-checklist-grid {
   display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: 12px;
-  padding: 1px 2px;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 8px 14px;
+  padding: 1px 0;
 }
 
 .features-checklist-col {
@@ -390,7 +566,7 @@ body::after {
 .quiz-settings-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 11px;
+  gap: 10px;
   align-items: stretch;
 }
 
@@ -399,9 +575,10 @@ body::after {
   display: flex;
   flex-direction: column;
   gap: 9px;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.2s ease;
 }
 
+.quiz-card-group .notion-property-card,
 .quiz-card-inner {
   flex: 1;
   display: flex;
@@ -409,6 +586,10 @@ body::after {
   justify-content: space-between;
   gap: 8px;
   min-height: 68px;
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  box-shadow: none !important;
 }
 
 /* Lock Status Badge */
@@ -426,35 +607,29 @@ body::after {
 }
 
 .lock-status-badge.locked {
-  background: rgba(255, 69, 58, 0.14);
-  color: #ff6961;
-  border: 1px solid rgba(255, 69, 58, 0.32);
+  background: rgba(239, 68, 68, 0.12);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.28);
 }
 
 .lock-status-badge.active {
-  background: rgba(48, 209, 88, 0.14);
-  color: #30d158;
-  border: 1px solid rgba(48, 209, 88, 0.32);
+  background: rgba(34, 197, 94, 0.12);
+  color: #4ade80;
+  border: 1px solid rgba(34, 197, 94, 0.28);
 }
 
 /* Locked Card Effect */
 #humanizeSection.is-locked {
-  background: rgba(14, 18, 27, 0.45);
-  border-color: rgba(255, 255, 255, 0.07);
+  background: #0f1015;
+  border-color: rgba(255, 255, 255, 0.06);
 }
 
 #humanizeSection.is-locked .group-title {
-  color: var(--ios-text-secondary);
-  opacity: 0.85;
-}
-
-#humanizeSection.is-locked .notion-property-card {
-  background: rgba(0, 0, 0, 0.20);
-  border-color: rgba(255, 255, 255, 0.05);
+  color: var(--zinc-400);
 }
 
 #humanizeSection.is-locked .range-row {
-  opacity: 0.38;
+  opacity: 0.35;
   filter: grayscale(0.8);
   pointer-events: none;
 }
@@ -522,22 +697,20 @@ body::after {
 
 /* iOS Frosted Glass Group */
 .notion-block-group {
-  background: var(--ios-glass-card);
+  background: var(--zinc-900);
   border: 1px solid var(--ios-border);
-  border-radius: 14px;
-  padding: 11px 12px;
+  border-radius: 11px;
+  padding: 11px 13px;
   display: flex;
   flex-direction: column;
   gap: 9px;
-  box-shadow: var(--ios-specular-top), var(--ios-shadow-card);
-  backdrop-filter: blur(18px) saturate(180%);
-  -webkit-backdrop-filter: blur(18px) saturate(180%);
-  transition: background 0.18s ease, border-color 0.18s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  transition: background 0.15s ease, border-color 0.15s ease;
 }
 
 .notion-block-group:hover {
-  background: var(--ios-glass-card-hover);
-  border-color: rgba(255, 255, 255, 0.16);
+  background: var(--zinc-850);
+  border-color: rgba(255, 255, 255, 0.12);
 }
 
 .group-header {
@@ -558,24 +731,24 @@ body::after {
 }
 
 .group-title svg {
-  color: var(--ios-text-secondary);
+  color: var(--zinc-400);
   flex-shrink: 0;
 }
 
 /* Sub-card inside group */
 .notion-property-card {
-  background: var(--ios-glass-inner);
-  border: 1px solid var(--ios-border-subtle);
-  border-radius: 10px;
-  padding: 8px 10px;
+  background: rgba(0, 0, 0, 0.22);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 7px 9px;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 4px;
   transition: border-color 0.15s ease;
 }
 
 .notion-property-card:hover {
-  border-color: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.1);
 }
 
 .property-label {
@@ -584,7 +757,7 @@ body::after {
   justify-content: space-between;
   font-size: 11px;
   font-weight: 500;
-  color: var(--ios-text-secondary);
+  color: var(--zinc-400);
 }
 
 /* ==========================================================================
@@ -598,37 +771,37 @@ body::after {
 .select-wrapper::after {
   content: "";
   position: absolute;
-  right: 10px;
+  right: 9px;
   top: 50%;
   transform: translateY(-50%);
   width: 0;
   height: 0;
-  border-left: 4px solid transparent;
-  border-right: 4px solid transparent;
-  border-top: 4.5px solid var(--ios-text-secondary);
+  border-left: 3.5px solid transparent;
+  border-right: 3.5px solid transparent;
+  border-top: 4px solid var(--zinc-400);
   pointer-events: none;
 }
 
 .notion-select,
 .notion-input {
   width: 100%;
-  height: 30px;
-  padding: 0 10px;
+  height: 28px;
+  padding: 0 9px;
   background: rgba(0, 0, 0, 0.35);
   border: 1px solid var(--ios-border);
-  border-radius: 8px;
-  color: #ffffff;
+  border-radius: 6px;
+  color: #f4f4f5;
   font-family: inherit;
-  font-size: 12px;
+  font-size: 11.5px;
   outline: none;
-  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
+  transition: all 0.15s ease;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25);
 }
 
 .notion-select {
   appearance: none;
   -webkit-appearance: none;
-  padding-right: 26px;
+  padding-right: 22px;
   cursor: pointer;
 }
 
@@ -639,12 +812,12 @@ body::after {
 
 .notion-select:focus,
 .notion-input:focus {
-  border-color: var(--ios-border-focus);
-  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.12), inset 0 1px 2px rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.08), inset 0 1px 2px rgba(0, 0, 0, 0.25);
 }
 
 .notion-input::placeholder {
-  color: var(--ios-text-tertiary);
+  color: var(--zinc-500);
 }
 
 .input-with-button {
@@ -658,56 +831,61 @@ body::after {
 }
 
 .btn-ghost-sm {
-  height: 30px;
+  height: 28px;
   padding: 0 9px;
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.07);
   border: 1px solid var(--ios-border);
-  border-radius: 8px;
-  color: var(--ios-text-primary);
+  border-radius: 6px;
+  color: var(--zinc-200);
   font-family: inherit;
   font-size: 11px;
   font-weight: 500;
   cursor: pointer;
   white-space: nowrap;
   transition: all 0.15s ease;
-  box-shadow: var(--ios-specular-top);
 }
 
 .btn-ghost-sm:hover {
-  background: rgba(255, 255, 255, 0.14);
-  border-color: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.13);
+  border-color: rgba(255, 255, 255, 0.22);
+  color: #ffffff;
 }
 
 .field-label {
   font-size: 11px;
   font-weight: 500;
-  color: var(--ios-text-secondary);
+  color: var(--zinc-400);
   display: block;
   margin-bottom: 3px;
 }
 
 .helper-text {
   font-size: 10.5px;
-  color: var(--ios-text-tertiary);
+  color: var(--zinc-500);
   line-height: 1.4;
   display: block;
 }
 
 .error-text {
-  color: var(--ios-red-text) !important;
+  color: #f87171 !important;
 }
 
 /* ==========================================================================
-   iOS Checkboxes & Custom Checkmarks (High Contrast ::after)
+   iOS Checkboxes & Custom Checkmarks (High Contrast, Clean & Crisp)
    ========================================================================== */
 .notion-checkbox-row {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 7px;
   cursor: pointer;
   user-select: none;
   font-size: 11.5px;
   line-height: 1.35;
+  color: var(--zinc-200);
+}
+
+.notion-checkbox-row:hover .checkbox-label {
+  color: #ffffff;
 }
 
 .notion-checkbox-row input[type="checkbox"] {
@@ -719,55 +897,54 @@ body::after {
 }
 
 .custom-checkbox {
-  width: 16px;
-  height: 16px;
-  background: rgba(255, 255, 255, 0.12);
-  border: 1.2px solid rgba(255, 255, 255, 0.30);
-  border-radius: 4.5px;
+  width: 15px;
+  height: 15px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1.2px solid rgba(255, 255, 255, 0.22);
+  border-radius: 4px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.2);
+  transition: all 0.12s ease;
   position: relative;
 }
 
 .notion-checkbox-row:hover .custom-checkbox {
-  background: rgba(255, 255, 255, 0.20);
-  border-color: rgba(255, 255, 255, 0.50);
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.45);
 }
 
-/* Active / Checked State: Translucent Frosted Glass Fill */
+/* Active / Checked State: Solid White Pill with Dark Checkmark */
 .notion-checkbox-row input[type="checkbox"]:checked + .custom-checkbox {
-  background-color: rgba(255, 255, 255, 0.34);
-  border-color: rgba(255, 255, 255, 0.80);
-  box-shadow: 0 0 8px rgba(255, 255, 255, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  background: #f4f4f5;
+  border-color: #f4f4f5;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .notion-checkbox-row:hover input[type="checkbox"]:checked + .custom-checkbox {
-  background-color: rgba(255, 255, 255, 0.42);
+  background: #ffffff;
   border-color: #ffffff;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.45);
 }
 
-/* Crisp White Checkmark on Translucent Background */
+/* Crisp Dark Checkmark on White Background */
 .notion-checkbox-row input[type="checkbox"]:checked + .custom-checkbox::after {
   content: "";
   display: block;
-  width: 4px;
-  height: 8px;
-  border: solid #ffffff;
-  border-width: 0 2px 2px 0;
+  width: 3.5px;
+  height: 7px;
+  border: solid #090a0d;
+  border-width: 0 1.8px 1.8px 0;
   transform: rotate(45deg);
   margin-top: -1.5px;
   margin-left: 0.5px;
 }
 
 .checkbox-label {
-  color: var(--ios-text-primary);
+  color: var(--zinc-300);
   font-size: 11.5px;
   font-weight: 450;
+  transition: color 0.12s ease;
 }
 
 .notion-checklist {
@@ -966,51 +1143,180 @@ body::after {
 }
 
 /* ==========================================================================
-   Status Banner (iOS Frosted Callout)
+   Status Banner (Apple iOS Floating Dynamic Toast)
    ========================================================================== */
 .status {
-  padding: 9px 12px;
-  border-radius: 10px;
-  font-size: 11.5px;
-  line-height: 1.45;
+  position: fixed;
+  top: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
   display: none;
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  box-shadow: var(--ios-specular-top);
-  animation: fadeInStatus 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  width: max-content;
+  max-width: calc(100% - 36px);
+  min-width: 240px;
+  padding: 8px 12px 8px 12px;
+  border-radius: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.4;
+  backdrop-filter: blur(28px) saturate(190%);
+  -webkit-backdrop-filter: blur(28px) saturate(190%);
+  cursor: pointer;
+  user-select: none;
+  pointer-events: auto;
+  box-shadow: 
+    0 14px 34px -4px rgba(0, 0, 0, 0.7),
+    0 4px 14px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  animation: toastSlideDown 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-@keyframes fadeInStatus {
-  from { opacity: 0; transform: translateY(-3px); }
-  to { opacity: 1; transform: translateY(0); }
+@keyframes toastSlideDown {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -12px) scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, 0) scale(1);
+  }
 }
 
-.status.ok {
+.status.status-hiding {
+  animation: toastSlideUp 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  pointer-events: none;
+}
+
+@keyframes toastSlideUp {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, 0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -10px) scale(0.96);
+  }
+}
+
+.status-content {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+.status-icon-wrap {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.status-svg {
   display: block;
-  background: var(--ios-green-glass);
-  border: 1px solid var(--ios-green-border);
-  color: #55e67c;
+}
+
+.status-spin {
+  animation: statusSpin 1s linear infinite;
+}
+
+@keyframes statusSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.status-text {
+  flex: 1 1 auto;
+  font-size: 11.8px;
+  line-height: 1.35;
+  word-break: break-word;
+}
+
+.status-close-btn {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.45);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.15s ease;
+  padding: 0;
+  margin-left: 2px;
+}
+
+.status-close-btn:hover {
+  background: rgba(255, 255, 255, 0.14);
+  color: #ffffff;
+}
+
+/* Tone Variants */
+.status.ok {
+  display: flex;
+  background: linear-gradient(135deg, rgba(48, 209, 88, 0.18) 0%, rgba(16, 22, 18, 0.94) 100%);
+  border: 1px solid rgba(48, 209, 88, 0.45);
+  color: #e5fbe9;
+  box-shadow: 
+    0 14px 34px -4px rgba(0, 0, 0, 0.7),
+    0 0 20px rgba(48, 209, 88, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.status.ok .status-icon-wrap {
+  color: #30d158;
+  background: rgba(48, 209, 88, 0.22);
 }
 
 .status.error {
-  display: block;
-  background: var(--ios-red-glass);
-  border: 1px solid var(--ios-red-border);
-  color: var(--ios-red-text);
+  display: flex;
+  background: linear-gradient(135deg, rgba(255, 69, 58, 0.2) 0%, rgba(24, 16, 18, 0.94) 100%);
+  border: 1px solid rgba(255, 69, 58, 0.5);
+  color: #fff1f0;
+  box-shadow: 
+    0 14px 34px -4px rgba(0, 0, 0, 0.7),
+    0 0 20px rgba(255, 69, 58, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.status.error .status-icon-wrap {
+  color: #ff453a;
+  background: rgba(255, 69, 58, 0.22);
 }
 
 .status.info {
-  display: block;
-  background: var(--ios-blue-glass);
-  border: 1px solid var(--ios-blue-border);
-  color: var(--ios-blue-text);
+  display: flex;
+  background: linear-gradient(135deg, rgba(10, 132, 255, 0.18) 0%, rgba(16, 20, 26, 0.94) 100%);
+  border: 1px solid rgba(10, 132, 255, 0.45);
+  color: #f0f7ff;
+  box-shadow: 
+    0 14px 34px -4px rgba(0, 0, 0, 0.7),
+    0 0 20px rgba(10, 132, 255, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.status.info .status-icon-wrap {
+  color: #0a84ff;
+  background: rgba(10, 132, 255, 0.22);
 }
 
 /* ==========================================================================
    Footer — iPhone Frosted Glass Bottom Bar
    ========================================================================== */
 .notion-footer {
-  margin-top: 4px;
+  margin-top: 14px;
   padding-top: 10px;
   border-top: 1px solid var(--ios-border-subtle);
   display: flex;
@@ -1056,43 +1362,44 @@ body::after {
    License & Account Status Card
    ========================================================================== */
 .license-card-group {
-  margin-bottom: 10px;
+  margin-bottom: 2px;
 }
 
 .license-status-badge {
   font-size: 10px;
   font-weight: 600;
-  padding: 2px 7.5px;
+  padding: 1.5px 7px;
   border-radius: 999px;
+  letter-spacing: 0.02em;
   background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  color: var(--ios-text-secondary);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--zinc-300);
 }
 
 .license-status-badge.active {
-  background: rgba(48, 209, 88, 0.15);
-  border-color: rgba(48, 209, 88, 0.35);
-  color: var(--ios-green-text, #30d158);
+  background: rgba(34, 197, 94, 0.12);
+  border-color: rgba(34, 197, 94, 0.3);
+  color: #4ade80;
 }
 
 .license-status-badge.inactive,
 .license-status-badge.expired {
-  background: rgba(255, 69, 58, 0.14);
-  border-color: rgba(255, 69, 58, 0.32);
-  color: var(--ios-red-text, #ff6961);
+  background: rgba(239, 68, 68, 0.12);
+  border-color: rgba(239, 68, 68, 0.3);
+  color: #f87171;
 }
 
 .license-status-badge.mismatch {
-  background: rgba(255, 214, 10, 0.14);
-  border-color: rgba(255, 214, 10, 0.32);
-  color: var(--ios-amber-text, #ffd60a);
+  background: rgba(234, 179, 8, 0.12);
+  border-color: rgba(234, 179, 8, 0.3);
+  color: #facc15;
 }
 
 .license-content-card {
-  background: var(--ios-glass-inner);
-  border: 1px solid var(--ios-border-subtle);
-  border-radius: 10px;
-  padding: 8px 10px;
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  box-shadow: none !important;
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -1109,28 +1416,27 @@ body::after {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
-  height: 25px;
-  padding: 0 10px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  border-radius: 6px;
-  color: var(--ios-text-primary, #ffffff);
+  gap: 5px;
+  height: 24px;
+  padding: 0 8px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+  color: var(--zinc-200);
   font-family: inherit;
-  font-size: 11px;
+  font-size: 10.5px;
   font-weight: 500;
   cursor: pointer;
   white-space: nowrap;
   flex-shrink: 0;
-  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+  transition: all 0.15s ease;
 }
 
 .btn-copy-nim svg {
-  width: 12px;
-  height: 12px;
+  width: 11px;
+  height: 11px;
   flex-shrink: 0;
-  color: var(--ios-text-secondary, #a1a1a6);
+  color: var(--zinc-400);
   display: block;
 }
 
@@ -1140,8 +1446,8 @@ body::after {
 }
 
 .btn-copy-nim:hover {
-  background: rgba(255, 255, 255, 0.14);
-  border-color: rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.2);
   color: #ffffff;
 }
 
@@ -1151,17 +1457,17 @@ body::after {
 
 .btn-copy-nim:active {
   transform: scale(0.97);
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.16);
 }
 
 .btn-copy-nim.copied {
-  background: rgba(48, 209, 88, 0.16);
-  border-color: rgba(48, 209, 88, 0.4);
-  color: #30d158;
+  background: rgba(34, 197, 94, 0.14);
+  border-color: rgba(34, 197, 94, 0.35);
+  color: #4ade80;
 }
 
 .btn-copy-nim.copied svg {
-  color: #30d158;
+  color: #4ade80;
 }
 
 .account-info-left {
@@ -1267,10 +1573,10 @@ body::after {
 .btn-primary-sm {
   height: 28px;
   padding: 0 12px;
-  background: linear-gradient(180deg, #ffffff 0%, #e2e8f0 100%);
-  color: #000000;
+  background: #f4f4f5;
+  color: #090a0d;
   border: none;
-  border-radius: 7px;
+  border-radius: 6px;
   font-size: 11.5px;
   font-weight: 600;
   cursor: pointer;
@@ -1280,10 +1586,10 @@ body::after {
 }
 
 .btn-primary-sm:hover {
-  background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 100%);
+  background: #e4e4e7;
   transform: translateY(-0.5px);
 }
 
 .btn-primary-sm:active {
-  transform: translateY(0.5px);
+  transform: scale(0.98);
 }

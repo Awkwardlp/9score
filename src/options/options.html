@@ -90,7 +90,7 @@
             <span class="indicator connected"></span>
             <span class="sidebar-status-text">LMS Mentari Terhubung</span>
           </div>
-          <div class="sidebar-univ">Universitas Pamulang · v1.3.0 Beta</div>
+          <div class="sidebar-univ">Universitas Pamulang · v1.3.1 Beta</div>
         </div>
       </aside>
 
@@ -236,14 +236,12 @@
                       Metode Provider AI
                     </label>
                     <select id="providerSelect" class="notion-select">
-                      <option value="route">Route Bersama (Bebas Kuota, API Key Resmi)</option>
-                      <option value="apiKey">Gemini API Key (Google AI Studio Pribadi)</option>
-                      <option value="oauth">Google OAuth (Login Akun Google)</option>
+                      <option value="apiKey" selected>Gemini API Key (Google AI Studio Pribadi)</option>
                     </select>
-                    <span class="field-helper">Gunakan Route Bersama dengan API Key resmi terkonfigurasi.</span>
+                    <span class="field-helper">Gunakan Gemini API Key pribadi dari Google AI Studio.</span>
                   </div>
 
-                  <div class="property-card" id="routeKeyCard">
+                  <div class="property-card" id="routeKeyCard" style="display:none;">
                     <label class="field-label" for="routeKeyInput">
                       <svg class="field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
@@ -604,6 +602,48 @@
 
                 <div class="property-grid property-grid-2col">
                   <div class="property-card">
+                    <label class="field-label" for="forumPerspectiveSelect">
+                      <svg class="field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="2" y1="12" x2="22" y2="12"></line>
+                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                      </svg>
+                      Sudut Pandang / Perspektif (Multi-Prodi)
+                    </label>
+                    <select id="forumPerspectiveSelect" class="notion-select">
+                      <option value="auto">Acak Dinamis (Rekomendasi — Anti-Kembar Lintas Akun)</option>
+                      <option value="praktis">Praktik &amp; Lapangan (Studi Kasus &amp; Aplikasi Riil)</option>
+                      <option value="kritis">Evaluatif &amp; Manajemen Risiko (Kritis &amp; Analisis Hambatan)</option>
+                      <option value="teoretis">Konseptual &amp; Teori (Landasan Ilmiah &amp; Prinsip Dasar)</option>
+                      <option value="solutif">Solutif &amp; Rekomendasi (Strategis &amp; Actionable)</option>
+                      <option value="komparatif">Analisis Komparatif (Perbandingan Metode &amp; Alternatif)</option>
+                    </select>
+                    <span class="field-helper">Lensa berpikir universal agar argumen berbeda dari mahasiswa lain di mata kuliah apa pun.</span>
+                  </div>
+
+                  <div class="property-card">
+                    <label class="field-label" for="forumFormatStyleSelect">
+                      <svg class="field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="8" y1="6" x2="21" y2="6"></line>
+                        <line x1="8" y1="12" x2="21" y2="12"></line>
+                        <line x1="8" y1="18" x2="21" y2="18"></line>
+                        <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                        <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                        <line x1="3" y1="18" x2="3.01" y2="18"></line>
+                      </svg>
+                      Struktur Format Penulisan
+                    </label>
+                    <select id="forumFormatStyleSelect" class="notion-select">
+                      <option value="auto">Acak Dinamis (Rekomendasi — Struktur Variatif)</option>
+                      <option value="naratif">Naratif Mengalir (2–3 Paragraf Esai Alami)</option>
+                      <option value="poin">Pengantar Opini + Butir Poin Terarah</option>
+                      <option value="kasus">Asimetris (Akar Masalah &rarr; Solusi)</option>
+                      <option value="dialektis">Dialektis (Tesis &amp; Antitesis / Kritik)</option>
+                    </select>
+                    <span class="field-helper">Memecah pola paragraf kaku agar tata letak tulisan terlihat bervariasi dan alami.</span>
+                  </div>
+
+                  <div class="property-card">
                     <label class="field-label" for="forumToneSelect">
                       <svg class="field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
                         <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
@@ -613,7 +653,9 @@
                     <select id="forumToneSelect" class="notion-select">
                       <option value="akademis">Mahasiswa Akademis &amp; Formal (Sopan, Ilmiah, Terstruktur — Rekomendasi)</option>
                       <option value="ringkas">Ringkas &amp; To-the-Point (Padat, Langsung Inti Jawaban)</option>
-                      <option value="kritis">Kritis &amp; Analitis (Sertakan Studi Kasus &amp; Evaluasi)</option>
+                      <option value="kritis">Kritis &amp; Analitis (Sertakan Evaluasi &amp; Risiko)</option>
+                      <option value="santai">Santai &amp; Komunikatif (Semi-formal Mahasiswa)</option>
+                      <option value="analitis">Analitis &amp; Sistematis (Sebab-Akibat &amp; Implikasi)</option>
                     </select>
                     <span class="field-helper">Menentukan diksi dan pembawaan AI saat menulis tanggapan diskusi perkuliahan.</span>
                   </div>
@@ -626,6 +668,7 @@
                       Panjang Target Balasan
                     </label>
                     <select id="forumLengthSelect" class="notion-select">
+                      <option value="auto">Otomatis &amp; Bervariasi (Rekomendasi — Jitter Karakter)</option>
                       <option value="pendek">Pendek (1 paragraf ringkas ~75–120 kata)</option>
                       <option value="sedang">Sedang (2–3 paragraf berbobot ~150–250 kata — Default)</option>
                       <option value="panjang">Panjang &amp; Mendalam (3–5 paragraf komprehensif ~300–450 kata)</option>
@@ -642,10 +685,11 @@
                       Gaya Awalan Diskusi (Anti-Template)
                     </label>
                     <select id="forumOpeningStyleSelect" class="notion-select">
-                      <option value="campur">Bervariasi &amp; Natural (Campur: Menurut saya, Izin menjawab, dll — Rekomendasi)</option>
-                      <option value="opini">Opini Mahasiswa (Dominan: "Menurut saya...", "Dari kacamata saya...")</option>
-                      <option value="izin">Sopan &amp; Santun (Dominan: "Izin menjawab...", "Izin menanggapi...")</option>
-                      <option value="langsung">Langsung ke Inti (Terstruktur: "Menjawab Studi Kasus...")</option>
+                      <option value="campur">Bervariasi &amp; Natural (Campur — Rekomendasi Anti-Template)</option>
+                      <option value="opini">Opini Mahasiswa (Dominan: "Menurut saya...", dll)</option>
+                      <option value="izin">Sopan &amp; Santun (Dominan: "Izin menjawab...", dll)</option>
+                      <option value="langsung">Langsung ke Inti (Terstruktur)</option>
+                      <option value="respons">Interaktif (Menanggapi Dinamika Rekan Thread)</option>
                     </select>
                     <span class="field-helper">Memvariasikan kalimat pembuka argumen secara dinamis dan alami agar tanggapan tidak terkesan kaku atau berpola template.</span>
                   </div>
