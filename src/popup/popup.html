@@ -143,15 +143,6 @@
             </div>
           </div>
 
-          <!-- Route Info Banner (Tampil saat mode Route) -->
-          <div id="routeInfoBox" class="notion-property-card" style="display:none;">
-            <div class="oauth-status">
-              <span class="indicator connected"></span>
-              <span class="oauth-text font-medium">Route Bersama Mentari</span>
-            </div>
-            <span class="helper-text">Endpoint Route Bersama aktif dengan API Key resmi terkonfigurasi.</span>
-          </div>
-
           <!-- Notion Callout: OAuth Box (Tampil saat mode OAuth) -->
           <div id="oauthBox" class="notion-callout" style="display:none;">
             <div class="callout-main">
@@ -226,13 +217,13 @@
             <div class="select-wrapper">
               <select id="modelSelect" class="notion-select font-mono">
                 <option value="gemini-flash-lite-latest">gemini-flash-lite-latest (Tercepat)</option>
-                <option value="gemini-3.1-flash-lite-preview">gemini-3.1-flash-lite-preview (Preview)</option>
                 <option value="gemini-3.5-flash-lite">gemini-3.5-flash-lite (Terbaru)</option>
+                <option value="gemini-3.1-flash-lite-preview">gemini-3.1-flash-lite-preview (Preview)</option>
                 <option value="gemini-3.1-flash-lite">gemini-3.1-flash-lite (Stabil)</option>
-                <option value="gemini-2.5-flash-lite">gemini-2.5-flash-lite</option>
-                <option value="gemini-3-flash-preview">gemini-3-flash-preview</option>
-                <option value="gemini-2.5-flash">gemini-2.5-flash (Stabil)</option>
-                <option value="gemini-2.5-pro">gemini-2.5-pro (Akurat)</option>
+                <option value="gemini-3.8-flash">gemini-3.8-flash (Cerdas)</option>
+                <option value="gemini-flash-latest">gemini-flash-latest</option>
+                <option value="gemini-3.7-flash">gemini-3.7-flash</option>
+                <option value="gemini-3-flash-preview">gemini-3-flash-preview (Limit 20/hr)</option>
               </select>
             </div>
 
@@ -254,7 +245,7 @@
               <div class="ai-meta-grid">
                 <div class="ai-meta-item">
                   <span class="ai-meta-label">Jalur Server</span>
-                  <span id="modelStatusVia" class="ai-meta-val font-mono">Route Bersama</span>
+                  <span id="modelStatusVia" class="ai-meta-val font-mono">API Key Pribadi</span>
                 </div>
                 <div class="ai-meta-item">
                   <span class="ai-meta-label">Latensi Respons</span>
